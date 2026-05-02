@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ateste.me — Entregas Finais | Cysneiros</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --coral:#E8674F;
+  --purple:#7B2CBF;
+  --green:#10b981;
+  --dark:#0F0F1A;
+  --dark2:#13131f;
+  --dark3:#1c1c30;
+  --white:#fff;
+  --muted:rgba(255,255,255,.55);
+  --faint:rgba(255,255,255,.07);
+  --border:rgba(255,255,255,.09);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--dark);color:var(--white);overflow-x:hidden;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;opacity:.032;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(15,15,26,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(123,44,191,.15);padding:0 2rem}
+.nav-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px}
+.nav-brand{font-family:'DM Serif Display',serif;font-size:.92rem;color:var(--coral)}
+.nav-links{display:flex;gap:.1rem}
+.nav-links a{font-size:.68rem;color:rgba(255,255,255,.45);text-decoration:none;padding:.28rem .5rem;border-radius:6px;transition:all .2s;font-weight:600;letter-spacing:.3px;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,.06)}
+.nav-links a.active{color:var(--coral)}
+
+/* LAYOUT */
+section{padding:6rem 2rem 5rem;position:relative}
+.inner{max-width:1100px;margin:0 auto;width:100%}
+
+/* ARC DIVIDER */
+.arc-divider{padding:2rem 2rem;background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.arc-divider::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(123,44,191,.06) 0%,rgba(232,103,79,.06) 100%)}
+.arc-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:2rem;position:relative;z-index:1}
+.arc-num{font-family:'DM Serif Display',serif;font-size:3.5rem;color:rgba(255,255,255,.06);line-height:1;flex-shrink:0}
+.arc-content{}
+.arc-label{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--coral);margin-bottom:.3rem}
+.arc-title{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--white);line-height:1.2;margin-bottom:.3rem}
+.arc-desc{font-size:.88rem;color:var(--muted);line-height:1.7}
+.arc-entries{display:flex;gap:.5rem;margin-top:.6rem;flex-wrap:wrap}
+.arc-tag{font-size:.68rem;font-weight:600;padding:.22rem .65rem;border-radius:50px;background:rgba(255,255,255,.06);border:1px solid var(--border);color:rgba(255,255,255,.5)}
+
+/* SECTION HEADER */
+.sec-label{font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--coral);margin-bottom:.6rem;display:flex;align-items:center;gap:.45rem}
+.sec-label::before{content:'';width:20px;height:2px;background:var(--coral)}
+h2.sec-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.75rem);line-height:1.12;margin-bottom:.75rem}
+.sec-desc{color:var(--muted);font-size:.95rem;max-width:600px;margin-bottom:1rem;line-height:1.85}
+
+/* SUMMARY CARD — topo de cada entrega */
+.summary-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-left:3px solid var(--coral);border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin-bottom:2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.sc-item .sc-label{font-size:.65rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.35rem}
+.sc-item .sc-val{font-size:.85rem;color:rgba(255,255,255,.8);line-height:1.6}
+
+/* HERO */
+#hero{background:linear-gradient(140deg,#0d0c1d 0%,#16082e 45%,#270a1c 100%);min-height:100vh;display:flex;align-items:center;overflow:hidden}
+#hero::after{content:'';position:absolute;top:-20%;right:-10%;width:650px;height:650px;background:radial-gradient(circle,rgba(123,44,191,.18) 0%,transparent 65%);pointer-events:none}
+#hero::before{content:'';position:absolute;bottom:-10%;left:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(232,103,79,.11) 0%,transparent 65%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:980px;margin:0 auto;padding-top:2rem}
+.hero-kicker{display:inline-flex;align-items:center;gap:.5rem;background:rgba(123,44,191,.13);border:1px solid rgba(123,44,191,.3);padding:.32rem .95rem;border-radius:50px;font-size:.7rem;color:rgba(255,255,255,.6);margin-bottom:1.75rem;letter-spacing:.8px;font-weight:600;text-transform:uppercase}
+.kdot{width:5px;height:5px;background:var(--coral);border-radius:50%;animation:pd 2.2s ease-in-out infinite}
+@keyframes pd{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.6)}}
+h1.hero-title{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,5.5vw,4.8rem);line-height:1.08;margin-bottom:1.5rem}
+h1.hero-title em{font-style:italic;color:var(--coral)}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.58);max-width:640px;margin-bottom:2rem;font-weight:300;line-height:1.9}
+.hero-context{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:1.25rem 1.5rem;margin-bottom:2.5rem;max-width:680px}
+.hero-context p{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.8}
+.hero-context strong{color:rgba(255,255,255,.85);font-weight:600}
+
+/* HERO ARCS PREVIEW */
+.arcs-preview{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1rem}
+.ap-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:1.2rem;transition:all .28s;text-decoration:none;display:block}
+.ap-card:hover{background:rgba(255,255,255,.07);transform:translateY(-3px)}
+.ap-arc{font-size:.63rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--coral);margin-bottom:.4rem}
+.ap-title{font-size:.92rem;font-weight:700;color:var(--white);margin-bottom:.35rem;line-height:1.3}
+.ap-tags{font-size:.72rem;color:rgba(255,255,255,.38)}
+
+/* BADGES */
+.badge{padding:.35rem .9rem;border-radius:50px;font-size:.72rem;font-weight:600;letter-spacing:.3px;display:inline-block}
+.bc{background:rgba(232,103,79,.13);border:1px solid rgba(232,103,79,.25);color:#f9a08c}
+.bp{background:rgba(123,44,191,.13);border:1px solid rgba(123,44,191,.25);color:#b07de8}
+.bw{background:rgba(255,255,255,.06);border:1px solid var(--border);color:rgba(255,255,255,.6)}
+.badges{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:2rem}
+
+/* ═══ DOCUMENTO BUTTON — DESTAQUE MÁXIMO ═══ */
+.doc-btn-wrap{margin-top:2.5rem;margin-bottom:.5rem}
+.doc-btn{display:inline-flex;align-items:center;gap:.75rem;padding:.85rem 1.75rem;border-radius:12px;font-size:.92rem;font-weight:700;text-decoration:none;transition:all .25s;cursor:pointer;font-family:'Outfit',sans-serif;position:relative;letter-spacing:.2px}
+.doc-btn::before{content:'';position:absolute;inset:-1px;border-radius:13px;background:linear-gradient(135deg,rgba(255,255,255,.15),rgba(255,255,255,.03));z-index:0}
+.doc-btn span,.doc-btn svg{position:relative;z-index:1}
+.doc-btn svg{width:18px;height:18px;flex-shrink:0}
+/* Coral glow — documentos estratégicos */
+.doc-coral{background:linear-gradient(135deg,#d4522c,#e8674f);color:#fff;box-shadow:0 0 28px rgba(232,103,79,.45),0 4px 16px rgba(232,103,79,.3),inset 0 1px 0 rgba(255,255,255,.2)}
+.doc-coral:hover{box-shadow:0 0 42px rgba(232,103,79,.65),0 6px 24px rgba(232,103,79,.4),inset 0 1px 0 rgba(255,255,255,.2);transform:translateY(-2px)}
+/* Purple glow — documentos de referência */
+.doc-purple{background:linear-gradient(135deg,#6020a8,#7B2CBF);color:#fff;box-shadow:0 0 28px rgba(123,44,191,.45),0 4px 16px rgba(123,44,191,.3),inset 0 1px 0 rgba(255,255,255,.15)}
+.doc-purple:hover{box-shadow:0 0 42px rgba(123,44,191,.65),0 6px 24px rgba(123,44,191,.4),inset 0 1px 0 rgba(255,255,255,.15);transform:translateY(-2px)}
+/* Green glow — link externo / preview navegável */
+.doc-green{background:linear-gradient(135deg,#059669,#10b981);color:#fff;box-shadow:0 0 28px rgba(16,185,129,.4),0 4px 16px rgba(16,185,129,.25),inset 0 1px 0 rgba(255,255,255,.18)}
+.doc-green:hover{box-shadow:0 0 42px rgba(16,185,129,.6),0 6px 24px rgba(16,185,129,.35),inset 0 1px 0 rgba(255,255,255,.18);transform:translateY(-2px)}
+.doc-btns-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.5rem}
+.doc-btn-label{font-size:.65rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.65rem;display:flex;align-items:center;gap:.4rem}
+.doc-btn-label::before{content:'';width:16px;height:1px;background:rgba(255,255,255,.2)}
+
+/* LINK BTN pequeno — uso secundário */
+.link-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem 1rem;border-radius:8px;font-size:.78rem;font-weight:600;text-decoration:none;transition:all .2s;font-family:'Outfit',sans-serif}
+.link-btn svg{width:13px;height:13px;flex-shrink:0}
+.lbc{background:rgba(232,103,79,.1);border:1px solid rgba(232,103,79,.25);color:#f9a08c}
+.lbc:hover{background:rgba(232,103,79,.2);color:#fff}
+.lbp{background:rgba(123,44,191,.1);border:1px solid rgba(123,44,191,.25);color:#b07de8}
+.lbp:hover{background:rgba(123,44,191,.2);color:#fff}
+.lbw{background:rgba(255,255,255,.05);border:1px solid var(--border);color:rgba(255,255,255,.65)}
+.lbw:hover{background:rgba(255,255,255,.1);color:#fff}
+
+/* LP SECTION */
+#lp{background:var(--dark2)}
+.lp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-bottom:.5rem}
+.lp-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .25s;display:flex;flex-direction:column}
+.lp-card:hover{border-color:rgba(232,103,79,.22);transform:translateY(-4px)}
+.lp-head{padding:1.1rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.lp-url{font-size:.67rem;color:rgba(255,255,255,.28);font-family:monospace;margin-bottom:.4rem}
+.lp-name{font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.22rem}
+.lp-persona{font-size:.72rem;color:var(--coral);font-weight:600}
+.lp-body{padding:1.1rem;flex:1}
+.lp-sec{display:flex;gap:.45rem;padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.lp-sec:last-child{border:none}
+.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:.48rem}
+.dc{background:var(--coral)}.dp{background:var(--purple)}.dg{background:rgba(255,255,255,.18)}
+.sname{font-size:.76rem;color:rgba(255,255,255,.72);font-weight:600}
+.ssub{font-size:.69rem;color:rgba(255,255,255,.36);margin-top:.08rem;line-height:1.5}
+.transition-note{background:rgba(232,103,79,.06);border:1px solid rgba(232,103,79,.14);border-radius:10px;padding:1rem 1.25rem;font-size:.83rem;color:rgba(255,255,255,.6);line-height:1.75;margin-top:2rem}
+.transition-note strong{color:#f9a08c}
+
+/* CONTEÚDO */
+#conteudo{background:var(--dark)}
+.pilares{display:flex;flex-direction:column;gap:.65rem;margin-bottom:2.5rem}
+.pilar{display:flex;align-items:center;gap:.9rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:.9rem 1.15rem;transition:all .2s}
+.pilar:hover{background:rgba(255,255,255,.055)}
+.pnum{font-family:'DM Serif Display',serif;font-size:1.5rem;color:rgba(255,255,255,.09);min-width:28px}
+.pbar{width:3px;border-radius:3px;align-self:stretch;min-height:32px;flex-shrink:0}
+.ptitle{font-size:.87rem;font-weight:700;color:var(--white);margin-bottom:.12rem}
+.ptag{font-size:.69rem;color:rgba(255,255,255,.36)}
+.paud{margin-left:auto;font-size:.67rem;font-weight:600;padding:.2rem .65rem;border-radius:50px;white-space:nowrap}
+.aud-m{background:rgba(123,44,191,.13);color:#b07de8;border:1px solid rgba(123,44,191,.2)}
+.aud-mc{background:rgba(232,103,79,.13);color:#f9a08c;border:1px solid rgba(232,103,79,.2)}
+.aud-a{background:rgba(255,255,255,.05);color:rgba(255,255,255,.5);border:1px solid var(--border)}
+.sub-h{font-size:.72rem;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.85rem;margin-top:2rem}
+.tl-h{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem;margin-bottom:2rem}
+.tl-item{position:relative}
+.tl-item::after{content:'';position:absolute;top:12px;left:calc(100% - 6px);width:calc(100% - 18px);height:1px;background:rgba(255,255,255,.07)}
+.tl-item:last-child::after{display:none}
+.tl-dot{width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;margin-bottom:.5rem;position:relative;z-index:1}
+.td-c{background:rgba(232,103,79,.17);border:2px solid var(--coral);color:var(--coral)}
+.td-p{background:rgba(123,44,191,.17);border:2px solid var(--purple);color:#b07de8}
+.tl-lbl{font-size:.72rem;font-weight:700;color:var(--white);margin-bottom:.25rem}
+.tl-desc{font-size:.67rem;color:rgba(255,255,255,.4);line-height:1.55}
+.freq-box{background:rgba(123,44,191,.07);border:1px solid rgba(123,44,191,.16);border-left:3px solid var(--purple);border-radius:0 10px 10px 0;padding:.9rem 1.15rem;font-size:.84rem;color:rgba(255,255,255,.68);line-height:1.8;margin-bottom:1.5rem}
+.freq-box strong{color:#c084fc}
+
+/* GROWTH */
+#growth{background:var(--dark2)}
+.exp-table{width:100%;border-collapse:collapse;margin-bottom:2rem}
+.exp-table th{font-size:.65rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.3);padding:.5rem .85rem;text-align:left;border-bottom:1px solid var(--border)}
+.exp-table td{padding:.72rem .85rem;border-bottom:1px solid rgba(255,255,255,.04);font-size:.79rem;vertical-align:middle}
+.exp-table tr:last-child td{border:none}
+.exp-table tr:hover td{background:rgba(255,255,255,.02)}
+.en{font-family:'DM Serif Display',serif;font-size:1.2rem;color:rgba(255,255,255,.12)}
+.ename{font-weight:700;color:var(--white);margin-bottom:.15rem}
+.emeta{font-size:.69rem;color:rgba(255,255,255,.36)}
+.ice-wrap{display:flex;flex-direction:column;gap:3px}
+.ice-row{display:flex;align-items:center;gap:4px}
+.ice-lbl{font-size:.6rem;color:rgba(255,255,255,.28);width:8px;flex-shrink:0}
+.ice-bar{display:flex;gap:2px;flex:1}
+.is{height:4px;border-radius:2px;flex:1}
+.ifc{background:var(--coral)}.ifp{background:var(--purple)}.ie{background:rgba(255,255,255,.08)}
+.emetric{font-size:.75rem;color:rgba(255,255,255,.58);line-height:1.5}
+.ewhen{font-size:.72rem;font-weight:700;color:var(--coral);white-space:nowrap}
+.metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:.5rem}
+.mp{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.mph{padding:.9rem 1.15rem;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:.5rem}
+.mpdot{width:7px;height:7px;border-radius:50%}
+.mptitle{font-size:.82rem;font-weight:700;color:var(--white)}
+.mpsub{font-size:.68rem;color:rgba(255,255,255,.32);margin-left:auto}
+.mprows{padding:.65rem 1.15rem}
+.mr{display:flex;align-items:center;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.mr:last-child{border:none}
+.mrl{font-size:.75rem;color:rgba(255,255,255,.5)}
+.mrv{font-size:.79rem;font-weight:700}
+
+/* MATERIAIS */
+#materiais{background:var(--dark)}
+.mat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.mat-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:1.15rem;transition:all .25s;display:flex;flex-direction:column;gap:.65rem}
+.mat-card:hover{background:rgba(255,255,255,.055);transform:translateY(-3px)}
+.mhead{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem}
+.mnum{font-family:'DM Serif Display',serif;font-size:1.65rem;color:rgba(255,255,255,.07);line-height:1}
+.mpri{font-size:.62rem;font-weight:700;padding:.18rem .52rem;border-radius:50px;letter-spacing:.4px;text-transform:uppercase}
+.pria{background:rgba(232,103,79,.13);color:#f9a08c;border:1px solid rgba(232,103,79,.2)}
+.prim{background:rgba(255,255,255,.05);color:rgba(255,255,255,.42);border:1px solid var(--border)}
+.mtitle{font-size:.85rem;font-weight:700;color:var(--white);line-height:1.35}
+.mtags{display:flex;flex-wrap:wrap;gap:.32rem}
+.mtag{font-size:.65rem;font-weight:600;padding:.17rem .5rem;border-radius:6px}
+.mtp{background:rgba(123,44,191,.1);color:#b07de8}
+.mtf{background:rgba(255,255,255,.05);color:rgba(255,255,255,.42)}
+.mcap{font-size:.69rem;color:rgba(255,255,255,.3);line-height:1.55}
+
+/* COMUNIDADE */
+#comunidade{background:var(--dark2)}
+.fases{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:1.75rem}
+.fc{border-radius:16px;overflow:hidden}
+.fch{padding:1.15rem;display:flex;align-items:flex-start;gap:.65rem}
+.fclbl{font-size:.63rem;font-weight:700;letter-spacing:.9px;text-transform:uppercase;margin-bottom:.2rem;opacity:.65}
+.fctitle{font-size:.95rem;font-weight:700;color:var(--white)}
+.fcicon{font-size:1.2rem;margin-top:.1rem}
+.fcbody{padding:.5rem 1.15rem 1rem}
+.fci{font-size:.78rem;color:rgba(255,255,255,.6);padding:.27rem 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:.42rem;line-height:1.55}
+.fci:last-child{border:none}
+.fci::before{content:'→';color:var(--coral);font-size:.66rem;margin-top:.18rem;flex-shrink:0}
+.fc1{background:rgba(123,44,191,.065);border:1px solid rgba(123,44,191,.13)}
+.fc2{background:rgba(232,103,79,.055);border:1px solid rgba(232,103,79,.13)}
+.fccrit{font-size:.72rem;font-weight:600;padding:.4rem 1.15rem 1.15rem;opacity:.68}
+.emb-box{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin-bottom:1.75rem}
+.ei .elbl{font-size:.65rem;font-weight:700;color:var(--coral);letter-spacing:.5px;text-transform:uppercase;margin-bottom:.25rem}
+.ei .eval{font-size:.79rem;color:rgba(255,255,255,.62);line-height:1.55}
+.crono{display:grid;grid-template-columns:repeat(6,1fr);gap:.42rem;margin-bottom:.5rem}
+.cc{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:.65rem .5rem}
+.cmes{font-size:.62rem;font-weight:700;color:var(--coral);margin-bottom:.35rem;letter-spacing:.4px}
+.ci{font-size:.65rem;color:rgba(255,255,255,.48);padding:.17rem 0;line-height:1.45;border-bottom:1px solid rgba(255,255,255,.04)}
+.ci:last-child{border:none}
+.cdot{display:inline-block;width:4px;height:4px;border-radius:50%;margin-right:.25rem;vertical-align:middle}
+
+/* EXECUÇÃO */
+#execucao{background:var(--dark)}
+.prioridades{display:flex;flex-direction:column;gap:.65rem;margin-bottom:2.5rem}
+.prior{display:flex;align-items:flex-start;gap:.9rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:.9rem 1.15rem;transition:all .2s}
+.prior:hover{background:rgba(255,255,255,.055);border-color:rgba(232,103,79,.18)}
+.pn{font-family:'DM Serif Display',serif;font-size:1.85rem;color:var(--coral);opacity:.25;line-height:1;min-width:32px;flex-shrink:0}
+.ptt{font-size:.87rem;font-weight:700;color:var(--white);margin-bottom:.15rem}
+.pts{font-size:.75rem;color:rgba(255,255,255,.4);line-height:1.55}
+.rm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-bottom:.5rem}
+.rmc{border-radius:14px;padding:1.15rem;border:1px solid rgba(255,255,255,.055)}
+.rmc:nth-child(1){background:rgba(232,103,79,.06);border-color:rgba(232,103,79,.12)}
+.rmc:nth-child(2){background:rgba(123,44,191,.06);border-color:rgba(123,44,191,.12)}
+.rmc:nth-child(3){background:rgba(232,103,79,.04);border-color:rgba(232,103,79,.08)}
+.rmc:nth-child(4){background:rgba(123,44,191,.04);border-color:rgba(123,44,191,.08)}
+.rmp{font-size:.66rem;font-weight:700;letter-spacing:.7px;text-transform:uppercase;margin-bottom:.25rem}
+.rmt{font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.65rem}
+.rmi{font-size:.72rem;color:rgba(255,255,255,.45);padding:.2rem 0;display:flex;gap:.35rem;line-height:1.45}
+.rmi::before{content:'✓';font-size:.6rem;margin-top:.18rem;flex-shrink:0;color:rgba(255,255,255,.2)}
+
+/* FIM */
+#fim{background:linear-gradient(140deg,#08081a 0%,#160830 50%,#080e1c 100%);min-height:85vh;display:flex;align-items:center;overflow:hidden}
+#fim::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(123,44,191,.09) 0%,transparent 65%);pointer-events:none}
+.fim-inner{position:relative;z-index:1;text-align:center;max-width:760px;margin:0 auto}
+.fim-brand{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--coral);margin-bottom:.4rem}
+.fim-h{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,3rem);line-height:1.2;margin-bottom:1rem}
+.fim-q{font-size:1.05rem;color:rgba(255,255,255,.48);font-style:italic;font-family:'DM Serif Display',serif;margin-bottom:2.5rem;line-height:1.8;max-width:620px;margin-left:auto;margin-right:auto}
+.el-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:2.5rem}
+.ec{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:.65rem .9rem;display:flex;align-items:center;gap:.5rem;font-size:.75rem;color:rgba(255,255,255,.58)}
+.ck{width:17px;height:17px;border-radius:50%;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.26);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.62rem;color:#6ee7b7}
+.fim-ct{font-size:.78rem;color:rgba(255,255,255,.28);line-height:2.1}
+.fim-big-cta{margin-bottom:2.5rem;display:flex;justify-content:center}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.32s}.d4{transition-delay:.45s}
+
+@media(max-width:800px){
+  .hero-cards,.arcs-preview{grid-template-columns:1fr}
+  .lp-grid,.mat-grid,.fases,.metrics-grid,.rm-grid{grid-template-columns:1fr!important}
+  .tl-h{grid-template-columns:repeat(2,1fr)}
+  .crono{grid-template-columns:repeat(3,1fr)}
+  .el-grid{grid-template-columns:repeat(2,1fr)}
+  .emb-box,.summary-card{grid-template-columns:1fr}
+  .nav-links a{font-size:.6rem;padding:.22rem .38rem}
+  .doc-btns-row{flex-direction:column}
+}
+
+@media print{
+  nav,.arc-divider{display:none!important}
+  section{min-height:auto!important;background:white!important;color:#1a1a2e!important;page-break-inside:avoid}
+  body{background:white!important}
+  .doc-btn{box-shadow:none!important;background:#eee!important;color:#333!important}
+  h2.sec-title,h1.hero-title{color:#1a1a2e!important}
+  h1.hero-title em{color:var(--coral)!important}
+  #hero::after,#hero::before,#fim::after,body::before{display:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">Ateste.me — Entregas Finais</div>
+    <div class="nav-links">
+      <a href="#hero">Início</a>
+      <a href="#lp">LP</a>
+      <a href="#conteudo">Conteúdo</a>
+      <a href="#growth">Growth</a>
+      <a href="#materiais">Materiais</a>
+      <a href="#comunidade">Comunidade</a>
+      <a href="#execucao">Execução</a>
+      <a href="#dna">DNA</a>
+      <a href="#fim">Encerramento</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section id="hero" style="padding:6rem 2rem 5rem">
+  <div class="hero-inner inner">
+    <div class="hero-kicker reveal"><span class="kdot"></span>Contrato Nº 010/2026 — Cysneiros &amp; Consultores Associados</div>
+    <h1 class="hero-title reveal d1">Estratégia construída.<br><em>Agora é executar.</em></h1>
+    <p class="hero-sub reveal d2">Estas são as entregas finais do projeto de posicionamento digital do Ateste.me. Tudo o que está aqui foi construído para ser executado pelo time interno, sem dependência de agência ou consultoria recorrente.</p>
+
+    <div class="hero-context reveal d2">
+      <p>O <strong>DNA de Comunicação</strong> — posicionamento, personas (Marcos e Márcia), mecanismos e USP — foi validado e entregue nas Entregas 1 a 3. A partir daqui, entramos na fase de <strong>como colocar essa estratégia para funcionar na prática:</strong> onde o lead chega, como ele é nutrido, como a comunidade cresce e como o time opera com autonomia.</p>
+    </div>
+
+    <div class="badges reveal d2">
+      <span class="badge bc">Entregas 4 a 9</span>
+      <span class="badge bp">Fases 3 e 4 do Projeto</span>
+      <span class="badge bw">Instituto Verbus + Ateste.me</span>
+      <span class="badge bw">Abril 2026</span>
+    </div>
+
+    <div class="sub-h reveal d3" style="margin-top:0">A apresentação está organizada em três arcos</div>
+    <div class="arcs-preview reveal d3">
+      <a href="#lp" class="ap-card">
+        <div class="ap-arc">Arco 1 — Entrega 4</div>
+        <div class="ap-title">Onde o lead chega</div>
+        <div class="ap-tags">Landing pages · Rascunhos navegáveis · Estrutura por persona</div>
+      </a>
+      <a href="#conteudo" class="ap-card">
+        <div class="ap-arc">Arco 2 — Entregas 5, 6 e 7</div>
+        <div class="ap-title">Como vocês crescem</div>
+        <div class="ap-tags">Conteúdo · Growth hacking · Materiais ricos</div>
+      </a>
+      <a href="#comunidade" class="ap-card">
+        <div class="ap-arc">Arco 3 — Entregas 8 e 9</div>
+        <div class="ap-title">Como vocês retêm e escalam</div>
+        <div class="ap-tags">Comunidade de professoras · Guia de execução autônoma</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ARC DIVIDER 1
+════════════════════════════════════════ -->
+<div class="arc-divider">
+  <div class="arc-inner">
+    <div class="arc-num">01</div>
+    <div class="arc-content">
+      <div class="arc-label">Arco 1 de 3</div>
+      <div class="arc-title">Onde o lead chega</div>
+      <div class="arc-desc">Antes de qualquer conteúdo ou experimento de growth, o lead precisa ter um destino. As landing pages são o ponto de entrada da estratégia — o lugar onde o secretário decide se vai marcar uma reunião e onde a professora decide se vai fazer o diagnóstico. Sem essa fundação, tudo o que vem no Arco 2 não tem para onde converter.</div>
+      <div class="arc-entries">
+        <span class="arc-tag">Entrega 4 — Landing Pages</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ENTREGA 4 — LANDING PAGES
+════════════════════════════════════════ -->
+<section id="lp">
+  <div class="inner">
+    <div class="sec-label reveal">Entrega 4 de 9</div>
+    <h2 class="sec-title reveal d1">Rascunhos de Landing Pages</h2>
+    <p class="sec-desc reveal d1">Três estruturas conceituais com hierarquia de informação, sequência persuasiva por persona e direção de copy. Além dos wireframes estratégicos, os rascunhos navegáveis permitem ver o layout em funcionamento real.</p>
+
+    <div class="summary-card reveal d1">
+      <div class="sc-item"><div class="sc-label">O que é</div><div class="sc-val">Estrutura de 3 landing pages com copy direcional, sequência de seções e lógica de conversão por persona</div></div>
+      <div class="sc-item"><div class="sc-label">Para quem serve</div><div class="sc-val">Marcos (secretário, LP de gestores) · Márcia (professora, LP de ativação) · Ambos (página principal)</div></div>
+      <div class="sc-item"><div class="sc-label">O que o time faz com isso</div><div class="sc-val">Repassa para o desenvolvedor responsável pela implementação, ou usa como guia para montar direto em Webflow / WordPress</div></div>
+    </div>
+
+    <div class="lp-grid reveal d2">
+      <!-- LP1 -->
+      <div class="lp-card">
+        <div class="lp-head">
+          <div class="lp-url">atesteme.com/gestores</div>
+          <div class="lp-name">LP 1 — Para Gestores</div>
+          <div class="lp-persona">Marcos · Objetivo: Reunião Comercial</div>
+        </div>
+        <div class="lp-body">
+          <div class="lp-sec"><div class="dot dc"></div><div><div class="sname">Hero — urgência legal</div><div class="ssub">"Sua prefeitura assinou a PNED. O Ateste.me é a entrega documentada."</div></div></div>
+          <div class="lp-sec"><div class="dot dp"></div><div><div class="sname">Problema — Armadilha da Infraestrutura Ideal</div><div class="ssub">Por que os municípios ficam esperando o ambiente perfeito e perdem o prazo</div></div></div>
+          <div class="lp-sec"><div class="dot dc"></div><div><div class="sname">Como funciona — Rota PNED (5 passos)</div><div class="ssub">Diagnóstico → Trilha → Tutor → Plano de Aula → Certificação</div></div></div>
+          <div class="lp-sec"><div class="dot dp"></div><div><div class="sname">Prova social — pares reais com cargo e município</div><div class="ssub">X prefeituras · 32 mil alunos · resultados documentados</div></div></div>
+          <div class="lp-sec"><div class="dot dg"></div><div><div class="sname">Qualificação + Garantia + CTA final</div><div class="ssub">Garantia de Resultado Documentado — Ou Continuamos Trabalhando</div></div></div>
+        </div>
+      </div>
+      <!-- LP2 -->
+      <div class="lp-card">
+        <div class="lp-head">
+          <div class="lp-url">atesteme.com/professoras</div>
+          <div class="lp-name">LP 2 — Para Professoras</div>
+          <div class="lp-persona">Márcia · Objetivo: Ativação e Engajamento</div>
+        </div>
+        <div class="lp-body">
+          <div class="lp-sec"><div class="dot dc"></div><div><div class="sname">Hero — Efeito de Ponto Cego Pedagógico</div><div class="ssub">Valida a realidade dela sem expor a ignorância inicial</div></div></div>
+          <div class="lp-sec"><div class="dot dp"></div><div><div class="sname">Por que ficou para trás — não é culpa dela</div><div class="ssub">O sistema de formação falhou. Não a professora.</div></div></div>
+          <div class="lp-sec"><div class="dot dc"></div><div><div class="sname">Diagnóstico privado como entrada</div><div class="ssub">Só você vê o resultado. Funciona no celular, sem instalação.</div></div></div>
+          <div class="lp-sec"><div class="dot dp"></div><div><div class="sname">Os 5 passos da Rota PNED</div><div class="ssub">Sequência numerada, sem jargão, ritmo de avanço visível</div></div></div>
+          <div class="lp-sec"><div class="dot dg"></div><div><div class="sname">Depoimentos reais + CTA para diagnóstico</div><div class="ssub">Professoras com nome, cidade e escola — não anônimas</div></div></div>
+        </div>
+      </div>
+      <!-- LP3 -->
+      <div class="lp-card">
+        <div class="lp-head">
+          <div class="lp-url">atesteme.com</div>
+          <div class="lp-name">LP 3 — Página Principal</div>
+          <div class="lp-persona">Marcos + Márcia · Dupla audiência</div>
+        </div>
+        <div class="lp-body">
+          <div class="lp-sec"><div class="dot dc"></div><div><div class="sname">Hero híbrido — dois caminhos no fold</div><div class="ssub">Gestor → reunião comercial | Professora → diagnóstico</div></div></div>
+          <div class="lp-sec"><div class="dot dp"></div><div><div class="sname">O produto — lei e prática</div><div class="ssub">USP completa com âncora legal e prazo de 90 dias</div></div></div>
+          <div class="lp-sec"><div class="dot dc"></div><div><div class="sname">Como funciona — Rota PNED</div><div class="ssub">5 componentes visuais em sequência</div></div></div>
+          <div class="lp-sec"><div class="dot dg"></div><div><div class="sname">Prova social convergente + Garantia + CTAs segmentados</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-btn-label reveal">Acessar materiais desta entrega</div>
+    <div class="doc-btns-row reveal d1">
+      <a href="https://docs.google.com/document/d/1Uqe4X4IwQio1HeqD9Kuvy5DPnDeI3YY3/edit?usp=drive_link&ouid=101250624264914247133&rtpof=true&sd=true" target="_blank" class="doc-btn doc-coral">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <span>Estratégias para Landing Pages</span>
+      </a>
+      <a href="https://preview--ateste-me-landing-pages.lovable.app/" target="_blank" class="doc-btn doc-green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>Rascunhos Navegáveis — Ver ao Vivo</span>
+      </a>
+      <a href="https://docs.google.com/document/d/1YybtkWDG8CImbzvgVutF6b29zEHCtCKq/edit?usp=sharing&ouid=101250624264914247133&rtpof=true&sd=true" target="_blank" class="doc-btn doc-purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <span>Análise dos Sites + SEO/GEO</span>
+      </a>
+    </div>
+
+    <div class="transition-note reveal">
+      <strong>O que vem a seguir:</strong> as landing pages precisam de tráfego para converter. O Arco 2 define exatamente como gerar esse tráfego — por conteúdo orgânico, por experimentos de crescimento e por materiais ricos que capturam o lead antes mesmo de ele chegar à LP.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ARC DIVIDER 2
+════════════════════════════════════════ -->
+<div class="arc-divider">
+  <div class="arc-inner">
+    <div class="arc-num">02</div>
+    <div class="arc-content">
+      <div class="arc-label">Arco 2 de 3</div>
+      <div class="arc-title">Como vocês crescem</div>
+      <div class="arc-desc">As três entregas deste arco funcionam juntas como um motor de aquisição. O conteúdo (Entrega 5) atrai e posiciona a marca. Os experimentos de growth (Entrega 6) testam o que converte com o menor esforço possível. Os materiais ricos (Entrega 7) capturam o lead qualificado antes mesmo de ele pedir uma reunião. Uma alimenta a outra — e por isso foram concebidas na mesma fase.</div>
+      <div class="arc-entries">
+        <span class="arc-tag">Entrega 5 — Conteúdo</span>
+        <span class="arc-tag">Entrega 6 — Growth</span>
+        <span class="arc-tag">Entrega 7 — Materiais Ricos</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ENTREGA 5 — CONTEÚDO
+════════════════════════════════════════ -->
+<section id="conteudo">
+  <div class="inner">
+    <div class="sec-label reveal">Entrega 5 de 9</div>
+    <h2 class="sec-title reveal d1">Diretrizes de Conteúdo</h2>
+    <p class="sec-desc reveal d1">5 pilares editoriais com 25 temas priorizados, calendário de 90 dias e frequência mínima sustentável. Construído para o time executar sozinho, sem agência de conteúdo.</p>
+
+    <div class="summary-card reveal d1">
+      <div class="sc-item"><div class="sc-label">O que é</div><div class="sc-val">Guia editorial com pilares, temas, calendário e régua de frequência por canal e marca</div></div>
+      <div class="sc-item"><div class="sc-label">Para quem serve</div><div class="sc-val">A pessoa do time que vai escrever e publicar — com a orientação do que publicar, onde, para quem e por quê</div></div>
+      <div class="sc-item"><div class="sc-label">O que o time faz com isso</div><div class="sc-val">Segue o calendário de 90 dias, escolhe temas pelos pilares e mantém frequência mínima de 2 posts/semana no Ateste.me</div></div>
+    </div>
+
+    <div class="sub-h reveal">Os 5 Pilares de Conteúdo</div>
+    <div class="pilares reveal d1">
+      <div class="pilar"><div class="pnum">1</div><div class="pbar" style="background:var(--purple)"></div><div style="flex:1"><div class="ptitle">Autoridade Legal — PNED</div><div class="ptag">Lei 14.533/2023 · Obrigações municipais · Prazos · Prestação de contas</div></div><span class="paud aud-m">Marcos</span></div>
+      <div class="pilar"><div class="pnum">2</div><div class="pbar" style="background:var(--purple)"></div><div style="flex:1"><div class="ptitle">Implementação Prática</div><div class="ptag">Como sair do plano para a execução · Remove a Armadilha da Infraestrutura Ideal</div></div><span class="paud aud-m">Marcos</span></div>
+      <div class="pilar"><div class="pnum">3</div><div class="pbar" style="background:var(--coral)"></div><div style="flex:1"><div class="ptitle">Jornada da Professora</div><div class="ptag">Valida a realidade dela · Depoimentos reais · Progressão e certificação</div></div><span class="paud aud-mc">Márcia</span></div>
+      <div class="pilar"><div class="pnum">4</div><div class="pbar" style="background:linear-gradient(to bottom,var(--purple),var(--coral))"></div><div style="flex:1"><div class="ptitle">Prova Social e Resultados</div><div class="ptag">Cases de prefeituras · Números documentados · Depoimentos de gestores</div></div><span class="paud aud-a">Ambos</span></div>
+      <div class="pilar"><div class="pnum">5</div><div class="pbar" style="background:var(--purple)"></div><div style="flex:1"><div class="ptitle">Gestão Pública Educacional</div><div class="ptag">Tendências · Políticas públicas · Posiciona o Verbus como referência além do produto</div></div><span class="paud aud-m">Marcos</span></div>
+    </div>
+
+    <div class="sub-h reveal">Calendário 90 Dias</div>
+    <div class="tl-h reveal d1">
+      <div class="tl-item"><div class="tl-dot td-c">S1</div><div class="tl-lbl">Semanas 1–2</div><div class="tl-desc">Setup técnico. Analytics + Search Console. 2 primeiros posts em fila para publicar.</div></div>
+      <div class="tl-item"><div class="tl-dot td-p">S3</div><div class="tl-lbl">Semanas 3–5</div><div class="tl-desc">Publicação Pilar 1 (Marcos) + Pilar 3 (Márcia). Desafio 7 Dias. Material Rico 2 lançado.</div></div>
+      <div class="tl-item"><div class="tl-dot td-c">S6</div><div class="tl-lbl">Semanas 6–8</div><div class="tl-desc">Escala do que funcionou. WhatsApp Community criada. Material Rico 1 produzido.</div></div>
+      <div class="tl-item"><div class="tl-dot td-p">S9</div><div class="tl-lbl">Semanas 9–12</div><div class="tl-desc">Rituais da comunidade ativos. 3+ negociações em andamento. Pipeline B2G estruturado.</div></div>
+    </div>
+
+    <div class="freq-box reveal"><strong>Frequência mínima sustentável:</strong> 2 posts/semana no Ateste.me + 2 posts/mês no Instituto Verbus. Calendário com frequência menor mantido por 6 meses vale mais do que frequência alta abandonada no mês 2. <strong>Consistência vence volume.</strong></div>
+
+    <div class="doc-btn-label reveal">Acessar materiais desta entrega</div>
+    <div class="doc-btns-row reveal d1">
+      <a href="https://docs.google.com/document/d/1oiLh7y4doaonvh2u9mv5Ba1p3yXjsEnO/edit?usp=drive_link&ouid=101250624264914247133&rtpof=true&sd=true" target="_blank" class="doc-btn doc-coral">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <span>Linhas Editoriais e Conteúdos — Documento Completo</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ENTREGA 6 — GROWTH
+════════════════════════════════════════ -->
+<section id="growth" style="background:var(--dark2)">
+  <div class="inner">
+    <div class="sec-label reveal">Entrega 6 de 9</div>
+    <h2 class="sec-title reveal d1">Growth Hacking + Métricas</h2>
+    <p class="sec-desc reveal d1">6 experimentos priorizados pela metodologia ICE. Baixo custo, alta velocidade de aprendizado. Execute na ordem indicada — cada experimento informa o seguinte.</p>
+
+    <div class="summary-card reveal d1" style="border-left-color:var(--purple)">
+      <div class="sc-item"><div class="sc-label">O que é</div><div class="sc-val">6 experimentos de crescimento priorizados, KPIs por funil e framework de decisão para escalar o que funciona</div></div>
+      <div class="sc-item"><div class="sc-label">Para quem serve</div><div class="sc-val">A pessoa responsável por crescimento — para executar os experimentos e monitorar os números semanalmente</div></div>
+      <div class="sc-item"><div class="sc-label">O que o time faz com isso</div><div class="sc-val">Executa o Experimento 1 na Semana 3, registra o resultado e decide se escala ou ajusta antes de passar para o próximo</div></div>
+    </div>
+
+    <table class="exp-table reveal d1">
+      <thead><tr><th>#</th><th>Experimento</th><th>ICE (I · C · E)</th><th>Métrica Principal</th><th>Início</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="en">1</div></td>
+          <td><div class="ename">Desafio 7 Dias Digital</div><div class="emeta">50 professoras inativas · sequência WhatsApp · sem custo</div></td>
+          <td><div class="ice-wrap"><div class="ice-row"><span class="ice-lbl">I</span><div class="ice-bar"><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div></div></div><div class="ice-row"><span class="ice-lbl">C</span><div class="ice-bar"><div class="is ifp"></div><div class="is ifp"></div><div class="is ifp"></div><div class="is ifp"></div><div class="is ie"></div></div></div><div class="ice-row"><span class="ice-lbl">E</span><div class="ice-bar"><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div></div></div></div></td>
+          <td><div class="emetric">≥ 20% reativação em 7 dias</div></td>
+          <td><div class="ewhen">Semana 3</div></td>
+        </tr>
+        <tr>
+          <td><div class="en">2</div></td>
+          <td><div class="ename">Ativação Direta de Gestores</div><div class="emeta">Sequência de 3 mensagens personalizadas para secretários</div></td>
+          <td><div class="ice-wrap"><div class="ice-row"><span class="ice-lbl">I</span><div class="ice-bar"><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div></div></div><div class="ice-row"><span class="ice-lbl">C</span><div class="ice-bar"><div class="is ifp"></div><div class="is ifp"></div><div class="is ifp"></div><div class="is ie"></div><div class="is ie"></div></div></div><div class="ice-row"><span class="ice-lbl">E</span><div class="ice-bar"><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ie"></div></div></div></div></td>
+          <td><div class="emetric">5 reuniões/mês · taxa ≥ 20%</div></td>
+          <td><div class="ewhen">Semana 6</div></td>
+        </tr>
+        <tr>
+          <td><div class="en">3</div></td>
+          <td><div class="ename">Programa de Embaixadoras</div><div class="emeta">Professoras certificadas como multiplicadoras orgânicas</div></td>
+          <td><div class="ice-wrap"><div class="ice-row"><span class="ice-lbl">I</span><div class="ice-bar"><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ie"></div></div></div><div class="ice-row"><span class="ice-lbl">C</span><div class="ice-bar"><div class="is ifp"></div><div class="is ifp"></div><div class="is ifp"></div><div class="is ifp"></div><div class="is ie"></div></div></div><div class="ice-row"><span class="ice-lbl">E</span><div class="ice-bar"><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ie"></div></div></div></div></td>
+          <td><div class="emetric">≥ 1 nova ativa / embaixadora / mês</div></td>
+          <td><div class="ewhen">Mês 2</div></td>
+        </tr>
+        <tr>
+          <td><div class="en">4</div></td>
+          <td><div class="ename">SEO de Cauda Longa — PNED</div><div class="emeta">Posts blog alinhados com queries de gestores públicos</div></td>
+          <td><div class="ice-wrap"><div class="ice-row"><span class="ice-lbl">I</span><div class="ice-bar"><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ie"></div></div></div><div class="ice-row"><span class="ice-lbl">C</span><div class="ice-bar"><div class="is ifp"></div><div class="is ifp"></div><div class="is ifp"></div><div class="is ie"></div><div class="is ie"></div></div></div><div class="ice-row"><span class="ice-lbl">E</span><div class="ice-bar"><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div></div></div></div></td>
+          <td><div class="emetric">Top 10 em 1 query cauda longa (90d)</div></td>
+          <td><div class="ewhen">Semana 3</div></td>
+        </tr>
+        <tr>
+          <td><div class="en">5</div></td>
+          <td><div class="ename">Captura por Materiais Ricos</div><div class="emeta">Formulário LP1 + sequência de nutrição B2G pós-download</div></td>
+          <td><div class="ice-wrap"><div class="ice-row"><span class="ice-lbl">I</span><div class="ice-bar"><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div></div></div><div class="ice-row"><span class="ice-lbl">C</span><div class="ice-bar"><div class="is ifp"></div><div class="is ifp"></div><div class="is ifp"></div><div class="is ifp"></div><div class="is ie"></div></div></div><div class="ice-row"><span class="ice-lbl">E</span><div class="ice-bar"><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ie"></div><div class="is ie"></div></div></div></div></td>
+          <td><div class="emetric">10 leads/mês de gestores via LP1</div></td>
+          <td><div class="ewhen">Semana 5</div></td>
+        </tr>
+        <tr>
+          <td><div class="en">6</div></td>
+          <td><div class="ename">Vídeo Curto — Reels / Shorts</div><div class="emeta">1 gravação/mês abastece semana inteira de conteúdo</div></td>
+          <td><div class="ice-wrap"><div class="ice-row"><span class="ice-lbl">I</span><div class="ice-bar"><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ie"></div><div class="is ie"></div></div></div><div class="ice-row"><span class="ice-lbl">C</span><div class="ice-bar"><div class="is ifp"></div><div class="is ifp"></div><div class="is ifp"></div><div class="is ie"></div><div class="is ie"></div></div></div><div class="ice-row"><span class="ice-lbl">E</span><div class="ice-bar"><div class="is ifc"></div><div class="is ifc"></div><div class="is ifc"></div><div class="is ie"></div><div class="is ie"></div></div></div></div></td>
+          <td><div class="emetric">Taxa de engajamento + retenção de vídeo</div></td>
+          <td><div class="ewhen">Mês 2</div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sub-h reveal">Painel de Métricas — Metas 90 Dias</div>
+    <div class="metrics-grid reveal d1">
+      <div class="mp">
+        <div class="mph"><div class="mpdot" style="background:var(--purple)"></div><div class="mptitle">Funil B2G — Marcos</div><div class="mpsub">Gestor Municipal</div></div>
+        <div class="mprows">
+          <div class="mr"><span class="mrl">Visitas LP1 (gestores)</span><span class="mrv" style="color:#b07de8">200 / mês</span></div>
+          <div class="mr"><span class="mrl">Leads captados via formulário</span><span class="mrv" style="color:#b07de8">10 / mês</span></div>
+          <div class="mr"><span class="mrl">Reuniões agendadas</span><span class="mrv" style="color:#b07de8">5 / mês</span></div>
+          <div class="mr"><span class="mrl">Taxa resposta → reunião</span><span class="mrv" style="color:#b07de8">≥ 20%</span></div>
+          <div class="mr"><span class="mrl">Negociações ativas no Mês 3</span><span class="mrv" style="color:#c084fc">3+ prefeituras</span></div>
+        </div>
+      </div>
+      <div class="mp">
+        <div class="mph"><div class="mpdot" style="background:var(--coral)"></div><div class="mptitle">Funil Ativação — Márcia</div><div class="mpsub">Professoras</div></div>
+        <div class="mprows">
+          <div class="mr"><span class="mrl">Fazem diagnóstico após cadastro</span><span class="mrv" style="color:#f9a08c">≥ 40%</span></div>
+          <div class="mr"><span class="mrl">Reativação Desafio 7 Dias</span><span class="mrv" style="color:#f9a08c">≥ 20%</span></div>
+          <div class="mr"><span class="mrl">Avançam além do diagnóstico</span><span class="mrv" style="color:#f9a08c">≥ 30%</span></div>
+          <div class="mr"><span class="mrl">Retorno D7 após 1º acesso</span><span class="mrv" style="color:#f9a08c">≥ 50%</span></div>
+          <div class="mr"><span class="mrl">Novas via Embaixadoras</span><span class="mrv" style="color:#fca5a5">1 / emb. / mês</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-btn-label reveal">Acessar materiais desta entrega</div>
+    <div class="doc-btns-row reveal d1">
+      <a href="https://docs.google.com/document/d/1c0MELW7e_wKyFLFSlpL21LpEkm5MHopS/edit?usp=drive_link&ouid=101250624264914247133&rtpof=true&sd=true" target="_blank" class="doc-btn doc-coral">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <span>Estratégias de Crescimento — Documento Completo</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ENTREGA 7 — MATERIAIS RICOS
+════════════════════════════════════════ -->
+<section id="materiais">
+  <div class="inner">
+    <div class="sec-label reveal">Entrega 7 de 9</div>
+    <h2 class="sec-title reveal d1">Plano de Materiais Ricos</h2>
+    <p class="sec-desc reveal d1">6 iscas digitais mapeadas com estrutura, ponto de captura e régua pós-download. O Checklist PNED é o primeiro a produzir — 2 a 3 horas no Canva, impacto imediato na geração de leads qualificados.</p>
+
+    <div class="summary-card reveal d1">
+      <div class="sc-item"><div class="sc-label">O que é</div><div class="sc-val">Mapa dos 6 materiais com tema, persona, formato, canal de distribuição e sequência recomendada de produção</div></div>
+      <div class="sc-item"><div class="sc-label">Para quem serve</div><div class="sc-val">Quem vai produzir os materiais — com guia de estrutura e critério de priorização já definido</div></div>
+      <div class="sc-item"><div class="sc-label">O que o time faz com isso</div><div class="sc-val">Produzir um material por mês na ordem indicada, lançar com formulário de captura e medir downloads para validar o próximo</div></div>
+    </div>
+
+    <div class="mat-grid reveal d1">
+      <div class="mat-card"><div class="mhead"><div class="mnum">01</div><span class="mpri pria">Alta — produzir 2º</span></div><div class="mtitle">Guia Definitivo da PNED para Secretários</div><div class="mtags"><span class="mtag mtp">Marcos</span><span class="mtag mtf">PDF 14–18 pág · Canva</span></div><div class="mcap">LP1 + LinkedIn — Pilar 1. Sequência de 3 emails pós-download.</div></div>
+      <div class="mat-card"><div class="mhead"><div class="mnum">02</div><span class="mpri pria">Alta — produzir 1º</span></div><div class="mtitle">Checklist: Sua Rede Está Pronta para a PNED?</div><div class="mtags"><span class="mtag mtp">Marcos</span><span class="mtag mtf">PDF 2 pág · Canva</span></div><div class="mcap">Blog Pilar 1 + formulário LP1. 2–3 horas de produção total.</div></div>
+      <div class="mat-card"><div class="mhead"><div class="mnum">03</div><span class="mpri prim">Média</span></div><div class="mtitle">Guia de Onboarding para Professoras</div><div class="mtags"><span class="mtag mtp">Márcia</span><span class="mtag mtf">PDF 2 pág · Canva</span></div><div class="mcap">LP2 + Instagram. Entregue automaticamente após o cadastro na plataforma.</div></div>
+      <div class="mat-card"><div class="mhead"><div class="mnum">04</div><span class="mpri prim">Média</span></div><div class="mtitle">Relatório: Estado da Educação Digital nas Redes Municipais</div><div class="mtags"><span class="mtag mtp">Marcos + Parceiros</span><span class="mtag mtf">PDF 20+ pág</span></div><div class="mcap">LinkedIn + Blog Verbus — Pilar 5. Posiciona o Verbus como referência de mercado.</div></div>
+      <div class="mat-card"><div class="mhead"><div class="mnum">05</div><span class="mpri prim">Média</span></div><div class="mtitle">Template: Apresentação da PNED para a Câmara Municipal</div><div class="mtags"><span class="mtag mtp">Marcos</span><span class="mtag mtf">PPT 10 slides editável</span></div><div class="mcap">Blog Pilar 5 + base de gestores que já baixaram outros materiais.</div></div>
+      <div class="mat-card"><div class="mhead"><div class="mnum">06</div><span class="mpri pria">Alta — onboarding</span></div><div class="mtitle">Kit de Onboarding do Parceiro Comercial</div><div class="mtags"><span class="mtag mtp">Parceiros</span><span class="mtag mtf">Pasta digital</span></div><div class="mcap">Entregue no onboarding — não é isca pública. USP + argumentos + script de abordagem.</div></div>
+    </div>
+
+    <div class="doc-btn-label reveal" style="margin-top:2.5rem">Acessar materiais desta entrega</div>
+    <div class="doc-btns-row reveal d1">
+      <a href="https://docs.google.com/document/d/1c0MELW7e_wKyFLFSlpL21LpEkm5MHopS/edit?usp=drive_link&ouid=101250624264914247133&rtpof=true&sd=true" target="_blank" class="doc-btn doc-coral">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <span>Estratégias de Crescimento — Materiais Ricos em Detalhe</span>
+      </a>
+    </div>
+
+    <div class="transition-note reveal">
+      <strong>O que vem a seguir:</strong> o conteúdo atrai, os experimentos convertem, os materiais ricos capturam. Mas para que uma professora que chegou pela LP 2 continue engajada — e eventualmente puxe sua prefeitura para contratar — ela precisa de pertencimento. O Arco 3 é sobre isso: construir o ativo humano mais valioso de todo o projeto.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ARC DIVIDER 3
+════════════════════════════════════════ -->
+<div class="arc-divider">
+  <div class="arc-inner">
+    <div class="arc-num">03</div>
+    <div class="arc-content">
+      <div class="arc-label">Arco 3 de 3</div>
+      <div class="arc-title">Como vocês retêm e escalam</div>
+      <div class="arc-desc">Atrair e converter sem reter é um balde furado. O Roadmap de Comunidade (Entrega 8) constrói o ativo humano que mantém as professoras engajadas e as transforma em argumento de venda vivo para novos contratos. O Guia de Execução Autônoma (Entrega 9) é o documento que amarra tudo — ele garante que nenhuma das estratégias anteriores dependa da Cysneiros para acontecer.</div>
+      <div class="arc-entries">
+        <span class="arc-tag">Entrega 8 — Comunidade</span>
+        <span class="arc-tag">Entrega 9 — Guia de Execução</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ENTREGA 8 — COMUNIDADE
+════════════════════════════════════════ -->
+<section id="comunidade" style="background:var(--dark2)">
+  <div class="inner">
+    <div class="sec-label reveal">Entrega 8 de 9</div>
+    <h2 class="sec-title reveal d1">Roadmap de Gestão de Comunidade</h2>
+    <p class="sec-desc reveal d1">Professoras que participam de uma comunidade ativa têm 40–60% mais chance de completar a trilha. E cada professora certificada que fala da sua jornada é o argumento mais poderoso que existe para fechar o próximo contrato B2G.</p>
+
+    <div class="summary-card reveal d1" style="border-left-color:var(--purple)">
+      <div class="sc-item"><div class="sc-label">O que é</div><div class="sc-val">Arquitetura da comunidade em 2 fases, rituais semanais, Programa de Embaixadoras e cronograma de 6 meses</div></div>
+      <div class="sc-item"><div class="sc-label">Para quem serve</div><div class="sc-val">O gestor da comunidade — a pessoa do time que vai moderar, nutrir e crescer a base de professoras</div></div>
+      <div class="sc-item"><div class="sc-label">O que o time faz com isso</div><div class="sc-val">Criar o WhatsApp Community no Mês 1, ativar os rituais, identificar embaixadoras e avaliar migração para o Circle no Mês 4</div></div>
+    </div>
+
+    <div class="fases reveal d1">
+      <div class="fc fc1">
+        <div class="fch"><div class="fcicon">💬</div><div><div class="fclbl" style="color:#b07de8">Fase 1 — Meses 1 a 4</div><div class="fctitle">WhatsApp Community</div></div></div>
+        <div class="fcbody">
+          <div class="fci">4 grupos base — Avisos, Geral, Dúvidas, Conquistas</div>
+          <div class="fci">3 rituais semanais — Segunda da Motivação, Sexta das Conquistas, Pergunta da Semana</div>
+          <div class="fci">Café Digital mensal — professora certificada conta a jornada (60 min)</div>
+          <div class="fci">Onboarding manual — mensagem personalizada para cada nova membra</div>
+          <div class="fci">Programa de Embaixadoras — convite formal pós-certificação</div>
+        </div>
+        <div class="fccrit" style="color:#b07de8">Critério de migração: 200+ membras ativas + rituais funcionando</div>
+      </div>
+      <div class="fc fc2">
+        <div class="fch"><div class="fcicon">🏛️</div><div><div class="fclbl" style="color:#f9a08c">Fase 2 — Mês 5+</div><div class="fctitle">Circle — Hub Central</div></div></div>
+        <div class="fcbody">
+          <div class="fci">7 Spaces temáticos — Bem-vindas, Minha Jornada, Dúvidas, Conquistas, Sala dos Professores, Café Digital, Embaixadoras</div>
+          <div class="fci">Gamificação nativa — pontos por post, comentário e participação em evento</div>
+          <div class="fci">WhatsApp mantido apenas para avisos rápidos</div>
+          <div class="fci">Escala além das redes contratadas — demand pull orgânico</div>
+          <div class="fci">Conselho das Embaixadoras — reunião mensal exclusiva com as mais engajadas</div>
+        </div>
+        <div class="fccrit" style="color:#f9a08c">Migração gradual: 30 dias com as duas plataformas ativas em paralelo</div>
+      </div>
+    </div>
+
+    <div class="sub-h reveal">Programa de Embaixadoras</div>
+    <div class="emb-box reveal d1">
+      <div class="ei"><div class="elbl">Critério de convite</div><div class="eval">Certificada + ativa na comunidade há 30+ dias com engajamento consistente e voluntário</div></div>
+      <div class="ei"><div class="elbl">O que ganha</div><div class="eval">Conselho mensal + preview de novas funcionalidades + badge de embaixadora + linha direta com o time</div></div>
+      <div class="ei"><div class="elbl">Meta Fase 1</div><div class="eval">5–10 embaixadoras identificadas e comprometidas nos primeiros 60 dias de comunidade</div></div>
+    </div>
+
+    <div class="sub-h reveal">Cronograma 6 Meses</div>
+    <div class="crono reveal d1">
+      <div class="cc"><div class="cmes">Mês 1</div><div class="ci"><span class="cdot" style="background:var(--purple)"></span>Community criada</div><div class="ci"><span class="cdot" style="background:var(--coral)"></span>Emb. onboarded</div><div class="ci"><span class="cdot" style="background:var(--purple)"></span>3 rituais ativos</div></div>
+      <div class="cc"><div class="cmes">Mês 2</div><div class="ci"><span class="cdot" style="background:var(--coral)"></span>Café Digital (1ª)</div><div class="ci"><span class="cdot" style="background:var(--purple)"></span>Grupos regionais</div><div class="ci"><span class="cdot" style="background:var(--coral)"></span>Avaliação 30d</div></div>
+      <div class="cc"><div class="cmes">Mês 3</div><div class="ci"><span class="cdot" style="background:var(--purple)"></span>Conselho Emb.</div><div class="ci"><span class="cdot" style="background:var(--coral)"></span>Destaque Semana</div><div class="ci"><span class="cdot" style="background:var(--purple)"></span>NPS mensal</div></div>
+      <div class="cc"><div class="cmes">Mês 4</div><div class="ci"><span class="cdot" style="background:var(--coral)"></span>Avaliar Circle</div><div class="ci"><span class="cdot" style="background:var(--purple)"></span>200+ ativas?</div><div class="ci"><span class="cdot" style="background:var(--coral)"></span>Decisão: migrar</div></div>
+      <div class="cc"><div class="cmes">Mês 5</div><div class="ci"><span class="cdot" style="background:var(--purple)"></span>Setup Circle</div><div class="ci"><span class="cdot" style="background:var(--coral)"></span>Emb. chegam 1ºs</div><div class="ci"><span class="cdot" style="background:var(--purple)"></span>Migração gradual</div></div>
+      <div class="cc"><div class="cmes">Mês 6</div><div class="ci"><span class="cdot" style="background:var(--coral)"></span>Circle hub central</div><div class="ci"><span class="cdot" style="background:var(--purple)"></span>WhatsApp = avisos</div><div class="ci"><span class="cdot" style="background:var(--coral)"></span>Escala orgânica</div></div>
+    </div>
+
+    <div class="doc-btn-label reveal" style="margin-top:2.5rem">Acessar materiais desta entrega</div>
+    <div class="doc-btns-row reveal d1">
+      <a href="https://docs.google.com/document/d/1hdfxv8RntvQYUjerdHtDKUzColtBHbVv/edit?usp=drive_link&ouid=101250624264914247133&rtpof=true&sd=true" target="_blank" class="doc-btn doc-coral">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <span>Roadmap de Comunidade — Documento Completo</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ENTREGA 9 — EXECUÇÃO AUTÔNOMA
+════════════════════════════════════════ -->
+<section id="execucao">
+  <div class="inner">
+    <div class="sec-label reveal">Entrega 9 de 9 — Encerramento Estratégico</div>
+    <h2 class="sec-title reveal d1">Guia de Execução Autônoma</h2>
+    <p class="sec-desc reveal d1">Este é o documento que amarra o projeto inteiro. Tudo o que foi entregue nas Entregas 1 a 8 está consolidado aqui em uma única referência operacional — para que o time execute com independência, sem precisar reler nove documentos separados.</p>
+
+    <div class="summary-card reveal d1" style="border-left-color:var(--green)">
+      <div class="sc-item"><div class="sc-label">O que é</div><div class="sc-val">Consolidação estratégica de todas as decisões — fundamentos, personas, canais, prioridades, métricas e roadmap de 12 meses</div></div>
+      <div class="sc-item"><div class="sc-label">Para quem serve</div><div class="sc-val">Todo o time — é o documento de consulta diária antes de qualquer ação de comunicação, conteúdo ou growth</div></div>
+      <div class="sc-item"><div class="sc-label">O que o time faz com isso</div><div class="sc-val">Começar pelos 5 prioritários abaixo. Cada ação executada precisa ser justificável com referência a uma decisão deste guia</div></div>
+    </div>
+
+    <div class="sub-h reveal">Os 5 Prioritários — Comece Esta Semana</div>
+    <div class="prioridades reveal d1">
+      <div class="prior"><div class="pn">1</div><div><div class="ptt">Validar a USP com o time comercial</div><div class="pts">Testar com 2 parceiros em campo. Validar os termos da Garantia de Resultado internamente. Escolher definitivamente o nome da metodologia — Rota PNED é a recomendação.</div></div></div>
+      <div class="prior"><div class="pn">2</div><div><div class="ptt">Corrigir a lei em todos os materiais existentes</div><div class="pts">Lei 13.675/2018 → Lei 14.533/2023 (PNED). Erro crítico identificado no diagnóstico. Site, apresentações, PDFs — corrigir tudo antes de qualquer nova publicação.</div></div></div>
+      <div class="prior"><div class="pn">3</div><div><div class="ptt">Executar o Desafio 7 Dias Digital</div><div class="pts">50 professoras cadastradas com 0 progresso. Sequência de 3 mensagens personalizadas no WhatsApp. Meta: 20% de reativação. Sem custo financeiro. 4–6 horas de execução total.</div></div></div>
+      <div class="prior"><div class="pn">4</div><div><div class="ptt">Publicar os 2 primeiros posts</div><div class="pts">Um para Marcos (Pilar 1 — Lei 14.533/2023) e um para Márcia (Pilar 3 — começar do zero). Esses dois posts são a base de todo o calendário de 90 dias.</div></div></div>
+      <div class="prior"><div class="pn">5</div><div><div class="ptt">Produzir e lançar o Material Rico 2 — Checklist PNED</div><div class="pts">PDF de 2 páginas no Canva. Formulário de captura básico no site. Lançar junto com o post do Pilar 1. 2–3 horas de produção total.</div></div></div>
+    </div>
+
+    <div class="sub-h reveal">Roadmap 12 Meses</div>
+    <div class="rm-grid reveal d1">
+      <div class="rmc"><div class="rmp" style="color:#f9a08c">Mês 1</div><div class="rmt">Fundações</div><div class="rmi">Validar USP e lei com o time</div><div class="rmi">Configurar Analytics + Search Console</div><div class="rmi">Desafio 7 Dias + primeiros posts</div><div class="rmi">Material Rico 2 lançado</div></div>
+      <div class="rmc"><div class="rmp" style="color:#b07de8">Meses 2–3</div><div class="rmt">Crescimento</div><div class="rmi">WhatsApp Community ativa</div><div class="rmi">Material Rico 1 produzido</div><div class="rmi">Ativação direta de gestores</div><div class="rmi">Primeiro Café Digital</div></div>
+      <div class="rmc"><div class="rmp" style="color:#f9a08c">Meses 4–6</div><div class="rmt">Consolidação</div><div class="rmi">Avaliação de migração para Circle</div><div class="rmi">Conselho das Embaixadoras ativo</div><div class="rmi">Material Rico 4 (Relatório)</div><div class="rmi">Revisão KPIs + próximo ciclo</div></div>
+      <div class="rmc"><div class="rmp" style="color:#b07de8">Meses 7–12</div><div class="rmt">Escala</div><div class="rmi">Circle como hub central</div><div class="rmi">Materiais Ricos 5 e 6</div><div class="rmi">Meta 60 mil usuários</div><div class="rmi">Documentar aprendizados 2026</div></div>
+    </div>
+
+    <div class="doc-btn-label reveal">Acessar o documento de encerramento do projeto</div>
+    <div class="doc-btns-row reveal d1">
+      <a href="https://docs.google.com/document/d/16nE6a_tJzYu8XCrOg0jwL_hM7nteWgJy/edit?usp=drive_link&ouid=101250624264914247133&rtpof=true&sd=true" target="_blank" class="doc-btn doc-green" style="font-size:1rem;padding:1rem 2rem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <span>Guia de Execução Autônoma — Documento Completo</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     BONUS — DNA DE COMUNICAÇÃO
+════════════════════════════════════════ -->
+<section id="dna" style="background:var(--dark2)">
+  <div class="inner">
+    <div class="sec-label reveal">Documento de Referência — Entregas 1 a 3</div>
+    <h2 class="sec-title reveal d1">DNA de Comunicação</h2>
+    <p class="sec-desc reveal d1">Validado em sessão anterior, o DNA de Comunicação é a fundação de tudo que foi apresentado hoje. Está aqui como referência central — o documento que o time consulta sempre que houver dúvida sobre posicionamento, tom de voz ou direção estratégica.</p>
+
+    <div class="summary-card reveal d1" style="border-left-color:var(--purple)">
+      <div class="sc-item"><div class="sc-label">O que está no DNA</div><div class="sc-val">Posicionamento, USP, personas Marcos e Márcia, os 3 mecanismos nomeados, Rota PNED, garantia e vocabulário proibido</div></div>
+      <div class="sc-item"><div class="sc-label">Para quem serve</div><div class="sc-val">Todo o time — é o documento de identidade da marca. Qualquer comunicação externa deve ser consistente com ele</div></div>
+      <div class="sc-item"><div class="sc-label">Quando consultar</div><div class="sc-val">Antes de publicar qualquer post, montar qualquer apresentação ou treinar qualquer parceiro comercial</div></div>
+    </div>
+
+    <div style="background:rgba(123,44,191,.06);border:1px solid rgba(123,44,191,.15);border-radius:14px;padding:1.5rem;margin-bottom:2.5rem" class="reveal d1">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem">
+        <div>
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#b07de8;margin-bottom:.5rem">USP Campeã</div>
+          <div style="font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.7;font-style:italic">"A Única Plataforma de Inclusão Digital que Certifica Professores e Alunos da Rede Municipal com Validade Nacional — em até 90 Dias, Mesmo Partindo do Nível Zero, Garantido."</div>
+        </div>
+        <div>
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#b07de8;margin-bottom:.5rem">Os 3 Mecanismos</div>
+          <div style="font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.9">→ Armadilha da Infraestrutura Ideal<br>→ Efeito de Ponto Cego Pedagógico<br>→ Reativação de Identidade Docente</div>
+        </div>
+        <div>
+          <div style="font-size:.65rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#b07de8;margin-bottom:.5rem">Lei de Referência</div>
+          <div style="font-size:.8rem;color:rgba(255,255,255,.65);line-height:1.9">Lei <strong style="color:#c084fc">14.533/2023</strong> — PNED<br><span style="color:rgba(255,255,255,.35);text-decoration:line-through">Lei 13.675/2018</span><br><span style="font-size:.72rem;color:rgba(255,255,255,.3)">Corrigir em todos os materiais</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-btn-label reveal">Acessar o documento completo</div>
+    <div class="doc-btns-row reveal d1">
+      <a href="https://docs.google.com/document/d/1HKbHnyaXRAkJz9z6wWBPsfcylXI7ey5I/edit?usp=drive_link&ouid=101250624264914247133&rtpof=true&sd=true" target="_blank" class="doc-btn doc-purple" style="font-size:1rem;padding:1rem 2rem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <span>DNA de Comunicação — Documento Completo</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ENCERRAMENTO
+════════════════════════════════════════ -->
+<section id="fim">
+  <div class="inner">
+    <div class="fim-inner">
+      <div class="fim-brand reveal">Cysneiros &amp; Consultores Associados</div>
+      <h2 class="fim-h reveal d1">Projeto entregue.<br>Execução é de vocês.</h2>
+      <p class="fim-q reveal d2">"A base estratégica está construída. Agora é colocar o Ateste.me onde ele merece — como referência nacional em educação digital para redes municipais brasileiras."</p>
+
+      <div class="el-grid reveal d2">
+        <div class="ec"><div class="ck">✓</div>Diagnóstico Estratégico dos Sites</div>
+        <div class="ec"><div class="ck">✓</div>DNA de Comunicação v5</div>
+        <div class="ec"><div class="ck">✓</div>Apresentação HTML Interativa</div>
+        <div class="ec"><div class="ck">✓</div>Rascunhos de Landing Pages</div>
+        <div class="ec"><div class="ck">✓</div>Diretrizes de Conteúdo</div>
+        <div class="ec"><div class="ck">✓</div>Growth Hacking + Métricas</div>
+        <div class="ec"><div class="ck">✓</div>Plano de Materiais Ricos</div>
+        <div class="ec"><div class="ck">✓</div>Roadmap de Comunidade</div>
+        <div class="ec"><div class="ck">✓</div>Guia de Execução Autônoma</div>
+      </div>
+
+      <div class="fim-big-cta reveal d2">
+        <a href="https://docs.google.com/document/d/16nE6a_tJzYu8XCrOg0jwL_hM7nteWgJy/edit?usp=drive_link&ouid=101250624264914247133&rtpof=true&sd=true" target="_blank" class="doc-btn doc-purple" style="font-size:1rem;padding:1rem 2.25rem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span>Abrir o Guia de Execução Autônoma</span>
+        </a>
+      </div>
+
+      <div class="fim-ct reveal d3">
+        contato@cysneiros.com.br &nbsp;·&nbsp; (81) 99914-1429<br>
+        Recife, Pernambuco — Contrato Nº 010/2026 — Abril de 2026
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var obs=new IntersectionObserver(function(e){
+    e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}});
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+
+  var secs=document.querySelectorAll('section[id]');
+  var navAs=document.querySelectorAll('.nav-links a');
+  var navObs=new IntersectionObserver(function(e){
+    e.forEach(function(x){
+      if(x.isIntersecting){
+        navAs.forEach(function(a){a.classList.remove('active');});
+        var act=document.querySelector('.nav-links a[href="#'+x.target.id+'"]');
+        if(act)act.classList.add('active');
+      }
+    });
+  },{threshold:0.4});
+  secs.forEach(function(s){navObs.observe(s);});
+})();
+</script>
+</body>
+</html>

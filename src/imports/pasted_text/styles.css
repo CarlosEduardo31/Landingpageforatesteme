@@ -1,0 +1,509 @@
+<!-- Importação da Fonte Oficial da Cysneiros -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* Nova Paleta de Cores Oficial Ateste.me */
+    --obsidian: #0B0815;
+    --purple-bluest: #6E29DA;
+    --atesteme: #AB03F4;
+    --atesteme-hover: #8F00CC; /* Tom para o hover do botão */
+    --purple-blue-gray: #B29CFB;
+    --white: #ffffff;
+    
+    /* Degradê da Página Principal */
+    --degrade-top: #0B0815;
+    --degrade-bottom: #8431FF;
+
+    /* Mapeamento de Fundo e Textos */
+    --dark-bg: var(--obsidian);
+    --dark-bg-elevated: rgba(11, 8, 21, 0.85); /* Obsidian com transparência para modais/cards */
+    
+    --light-bg: #f8fafc;
+    --text-dark: var(--obsidian); /* Textos escuros agora usam Obsidian */
+    --text-muted-dark: rgba(11, 8, 21, 0.7); /* Obsidian mais suave para parágrafos */
+    
+    --muted: rgba(255, 255, 255, 0.7);
+    --border: rgba(255, 255, 255, 0.1);
+    --border-light: rgba(11, 8, 21, 0.1);
+  }
+
+  /* Reset e Escopo de Produção */
+  .atesteme-prod {
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .atesteme-prod * {
+    box-sizing: border-box;
+  }
+
+  /* Classes de Animação (Scroll Reveal) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .delay-1 { transition-delay: 0.1s; }
+  .delay-2 { transition-delay: 0.2s; }
+  .delay-3 { transition-delay: 0.3s; }
+
+  /* =========================================
+     SEÇÃO HERO (DEGRADÊ PRINCIPAL)
+     ========================================= */
+
+  .hero-section {
+    padding: 120px 20px 80px;
+    text-align: center;
+    color: var(--white);
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+    /* Degradê da Página Principal */
+    /* Para a página de Professores, troque para: background: var(--purple-blue-gray); */
+    /* Para a página de Gestores, troque para: background: var(--purple-bluest); */
+    background: linear-gradient(180deg, var(--degrade-top) 0%, var(--degrade-bottom) 100%);
+  }
+
+  .kicker {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.15;
+    margin-bottom: 24px;
+    max-width: 950px;
+    font-weight: 700;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 700px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Botões com a Cor Ateste.me */
+  .btn-primary {
+    background-color: var(--atesteme);
+    color: var(--white);
+    box-shadow: 0 4px 16px rgba(171, 3, 244, 0.3);
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--atesteme-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(171, 3, 244, 0.5);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--white);
+    border: 1px solid var(--border);
+  }
+
+  .btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--white);
+    transform: translateY(-3px);
+  }
+
+  /* =========================================
+     SEÇÕES CLARAS (Miolos da página)
+     ========================================= */
+
+  /* Prova Social (Branco) */
+  .social-proof {
+    padding: 60px 20px;
+    background-color: var(--white);
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .proof-numbers {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .proof-item h4 {
+    font-size: 2.8rem;
+    color: var(--text-dark); /* Obsidian */
+    margin: 0;
+    line-height: 1.1;
+    font-weight: 800;
+  }
+
+  .proof-item p {
+    color: var(--purple-bluest);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 8px;
+  }
+
+  /* O Problema (Cinza Claro) */
+  .problem-section {
+    padding: 100px 20px;
+    background-color: var(--light-bg);
+    text-align: center;
+  }
+
+  .problem-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .problem-content h2 {
+    font-size: 2.2rem;
+    color: var(--text-dark); /* Obsidian */
+    margin-bottom: 24px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .problem-content p {
+    font-size: 1.15rem;
+    color: var(--text-muted-dark); /* Obsidian suave */
+    margin-bottom: 20px;
+  }
+
+  /* Como Funciona (Branco) */
+  .steps-section {
+    padding: 100px 20px;
+    background-color: var(--white);
+    text-align: center;
+  }
+
+  .steps-title {
+    font-size: 2.5rem;
+    color: var(--text-dark); /* Obsidian */
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .steps-subtitle {
+    color: var(--text-muted-dark); /* Obsidian suave */
+    font-size: 1.15rem;
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  .step-card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: left;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 6px rgba(11, 8, 21, 0.02);
+  }
+
+  .step-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(171, 3, 244, 0.4);
+    box-shadow: 0 15px 30px rgba(11, 8, 21, 0.08);
+  }
+
+  .step-number {
+    font-size: 3rem;
+    color: var(--purple-blue-gray);
+    font-weight: 800;
+    opacity: 0.6;
+    margin-bottom: 20px;
+    line-height: 1;
+  }
+
+  .step-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    color: var(--text-dark); /* Obsidian */
+    margin-top: 0;
+    font-weight: 700;
+  }
+
+  .step-card p {
+    color: var(--text-muted-dark); /* Obsidian suave */
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  /* =========================================
+     CONTATO E RODAPÉ (Fundo Obsidian)
+     ========================================= */
+
+  .contact-section {
+    padding: 100px 20px;
+    background-color: var(--dark-bg); /* Obsidian */
+    color: var(--white);
+    text-align: center;
+  }
+
+  .contact-container {
+    max-width: 650px;
+    margin: 0 auto;
+    background: var(--dark-bg-elevated);
+    padding: 50px;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+  }
+
+  .contact-container h2 {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
+  .contact-container p {
+    color: var(--muted);
+    margin-bottom: 40px;
+    font-size: 1.05rem;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+    text-align: left;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: var(--white);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--atesteme);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-submit {
+    width: 100%;
+    margin-top: 16px;
+    font-size: 1.1rem;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.4);
+    background-color: var(--dark-bg); /* Obsidian */
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 768px) {
+    .hero-title { font-size: 2.2rem; }
+    .proof-numbers { gap: 30px; flex-direction: column; }
+    .contact-container { padding: 30px 20px; }
+  }
+</style>
+
+<div class="atesteme-prod">
+  
+  <!-- HERO (Degradê) -->
+  <section class="hero-section">
+    <div class="kicker reveal">Cumprimento Documentado da Lei 14.533/2023</div>
+    <h1 class="hero-title reveal delay-1">Sua rede municipal certificada digitalmente do zero ao certificado nacional.</h1>
+    <p class="hero-subtitle reveal delay-2">A única plataforma que desenvolve competências digitais de professores da rede pública alinhada à BNCC e à PNED, funcionando no celular, mesmo com internet fraca.</p>
+    
+    <div class="button-group reveal delay-3">
+      <a href="#contato" class="btn btn-primary">Sou Gestor - Solicitar Apresentação</a>
+      <a href="https://autoavaliacao.atesteme.com.br" class="btn btn-outline" target="_blank">Sou Professor - Diagnóstico Privado</a>
+    </div>
+  </section>
+
+  <!-- PROVA SOCIAL (Branco com Obsidian e Purple Bluest) -->
+  <section class="social-proof">
+    <div class="proof-numbers reveal">
+      <div class="proof-item">
+        <h4>32.000+</h4>
+        <p>Usuários Licenciados</p>
+      </div>
+      <div class="proof-item">
+        <h4>2.000+</h4>
+        <p>Desafios Interativos</p>
+      </div>
+      <div class="proof-item">
+        <h4>100%</h4>
+        <p>Alinhamento PNED/BNCC</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- O PROBLEMA (Cinza Claro com Obsidian) -->
+  <section class="problem-section">
+    <div class="problem-content">
+      <h2 class="reveal">A infraestrutura não pode ser a desculpa.</h2>
+      <p class="reveal delay-1">A principal objeção para não implementar tecnologia nas escolas é a falta de computadores modernos e internet rápida. O Ateste.me foi construído para a realidade brasileira.</p>
+      <p class="reveal delay-2">Não espere o ambiente ideal para cumprir a legislação. A nossa plataforma roda direto no navegador do smartphone do professor, sem instalar nada, respeitando o ritmo e a conexão da sua rede.</p>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA / ROTA PNED (Branco com Obsidian) -->
+  <section class="steps-section">
+    <h2 class="steps-title reveal">A Rota PNED na Prática</h2>
+    <p class="steps-subtitle reveal delay-1">Do primeiro clique à certificação, um caminho desenhado para não deixar ninguém para trás.</p>
+
+    <div class="steps-grid">
+      <div class="step-card reveal delay-1">
+        <div class="step-number">01</div>
+        <h3>Diagnóstico Privado</h3>
+        <p>Cada professor descobre seu nível real de competência digital. É individual, no celular e sem exposição perante a coordenação ou os colegas.</p>
+      </div>
+      
+      <div class="step-card reveal delay-2">
+        <div class="step-number">02</div>
+        <h3>Trilhas Adaptativas</h3>
+        <p>Desafios rápidos de 10 minutos que se encaixam na rotina corrida da escola. O foco é na prática pedagógica, garantindo que a tecnologia sirva à educação.</p>
+      </div>
+      
+      <div class="step-card reveal delay-3">
+        <div class="step-number">03</div>
+        <h3>Avaliação e Certificação</h3>
+        <p>Ao concluir a trilha, o professor recebe uma certificação de validade nacional. O gestor acessa relatórios em tempo real com evidências para prestação de contas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO B2G E RODAPÉ (Obsidian) -->
+  <section id="contato" class="contact-section">
+    <div class="contact-container reveal">
+      <h2>Pronto para iniciar?</h2>
+      <p>Fale com a nossa equipe de especialistas e garanta o cumprimento documentado da PNED na sua prefeitura.</p>
+      
+      <!-- O Formulário de Contato -->
+      <form action="#" method="POST">
+        <div class="form-group">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" class="form-input" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="cargo">Cargo (Ex: Secretário, Prefeito, Coordenador)</label>
+          <input type="text" id="cargo" name="cargo" class="form-input" required>
+        </div>
+        
+        <div class="form-group" style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 200px;">
+            <label for="cidade">Município</label>
+            <input type="text" id="cidade" name="cidade" class="form-input" required>
+          </div>
+          <div style="flex: 1; min-width: 100px;">
+            <label for="estado">Estado</label>
+            <input type="text" id="estado" name="estado" class="form-input" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">E-mail corporativo</label>
+          <input type="email" id="email" name="email" class="form-input" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-submit">Solicitar Contato Comercial</button>
+      </form>
+    </div>
+  </section>
+  
+  <footer class="footer">
+    © 2026 Instituto Verbus / Ateste.me - Todos os direitos reservados.
+  </footer>
+</div>
+
+<!-- Lógica de Interação - Scroll Reveal -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); 
+        }
+      });
+    }, {
+      rootMargin: '0px',
+      threshold: 0.15 
+    });
+
+    reveals.forEach(reveal => {
+      observer.observe(reveal);
+    });
+  });
+</script>
