@@ -244,9 +244,11 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center leading-tight"
-            style={{ color: 'var(--color-obsidian)' }}
+            style={{ color: "var(--color-obsidian)" }}
           >
-            Há uma professora na sua rede que ficou para trás. E uma prefeitura que vai precisar provar que não deixou.
+            Há uma professora na sua rede que ficou para trás. E
+            uma prefeitura que vai precisar provar que não
+            deixou.
           </motion.h2>
 
           <motion.div
@@ -255,22 +257,44 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="space-y-6 text-base md:text-lg leading-relaxed"
-            style={{ color: 'rgba(11, 8, 21, 0.7)' }}
+            style={{ color: "rgba(11, 8, 21, 0.7)" }}
           >
             <p>
-              Ela pode parecer radiosa ensinando suas professoras que ela domina muito bem, sem tecnologia. Mas agora ela precisa incluir competências digitais naquilo que ensina, atingindo, nada de absurdo, um perfume veio com ou da formação. Ninguém pediu pra ela aprender — pedirão para ela prestar contas.
+              Ela pode parecer radiosa ensinando suas
+              professoras que ela domina muito bem, sem
+              tecnologia. Mas agora ela precisa incluir
+              competências digitais naquilo que ensina,
+              atingindo, nada de absurdo, um perfume veio com ou
+              da formação. Ninguém pediu pra ela aprender —
+              pedirão para ela prestar contas.
             </p>
 
             <p>
-              A sua prefeitura, por outro lado, recebeu recursos federais via FNDE ou até patrimônio próprio, e precisa dar realce. Comprar equipamentos ou contratar uma sala cheia não resolve. O MEC quer prova que FNDE é consultado se formação digital. A secretaria precisa evidência auditável — não só certificado de esforço.
+              A sua prefeitura, por outro lado, recebeu recursos
+              federais via FNDE ou até patrimônio próprio, e
+              precisa dar realce. Comprar equipamentos ou
+              contratar uma sala cheia não resolve. O MEC quer
+              prova que FNDE é consultado se formação digital. A
+              secretaria precisa evidência auditável — não só
+              certificado de esforço.
             </p>
 
             <p>
-              Os dois problemas têm a mesma origem: a formação digital nunca foi feita pela secretaria de saúde até agora, e existe uma lei criada em 2024 — PNED — que torna obrigatória ela. Ela torna obrigatória de saúde a professora em nível que não está. Documente tudo para a prefeitura cumprir a lei.
+              Os dois problemas têm a mesma origem: a formação
+              digital nunca foi feita pela secretaria de saúde
+              até agora, e existe uma lei criada em 2024 — PNED
+              — que torna obrigatória ela. Ela torna obrigatória
+              de saúde a professora em nível que não está.
+              Documente tudo para a prefeitura cumprir a lei.
             </p>
 
-            <p className="font-semibold" style={{ color: 'var(--color-obsidian)' }}>
-              O Ateste.me resolve os dois ao mesmo tempo. Acolhe a professora do nível em que ela está. Documenta tudo para a prefeitura cumprir a lei.
+            <p
+              className="font-semibold"
+              style={{ color: "var(--color-obsidian)" }}
+            >
+              O Ateste.me resolve os dois ao mesmo tempo. Acolhe
+              a professora do nível em que ela está. Documenta
+              tudo para a prefeitura cumprir a lei.
             </p>
           </motion.div>
         </div>
@@ -351,43 +375,58 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-5xl font-bold mb-4"
+            className="text-3xl md:text-5xl font-bold mb-2"
             style={{ color: "var(--color-obsidian)" }}
           >
-            A Rota PNED na Prática
+            Rota PNED
           </motion.h2>
-          <motion.p
+          <motion.h3
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg md:text-xl max-w-2xl mx-auto"
+            className="text-xl md:text-2xl font-semibold mb-4"
+            style={{ color: "var(--color-obsidian)" }}
+          >
+            Como funciona — em 4 passos.
+          </motion.h3>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-base md:text-lg max-w-3xl mx-auto"
             style={{ color: "rgba(11, 8, 21, 0.7)" }}
           >
-            Do primeiro clique à certificação, um caminho
-            desenhado para não deixar ninguém para trás.
+            Do diagnóstico à certificação nacional. Tudo documentado para a prefeitura, tudo simples para a professora.
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {[
             {
               number: "01",
-              title: "Diagnóstico Privado",
+              title: "Diagnóstico",
               description:
-                "Cada professor descobre seu nível real de competência digital. É individual, no celular e sem exposição perante a coordenação ou os colegas.",
+                "Mapeamos as competências digitais de cada professor da rede municipal.",
             },
             {
               number: "02",
-              title: "Trilhas Adaptativas",
+              title: "Trilha Adaptativa",
               description:
-                "Desafios rápidos de 10 minutos que se encaixam na rotina corrida da escola. O foco é na prática pedagógica, garantindo que a tecnologia sirva à educação.",
+                "Cada professor recebe uma jornada personalizada no celular, com tutor humano.",
             },
             {
               number: "03",
-              title: "Avaliação e Certificação",
+              title: "Plano de Aula",
               description:
-                "Ao concluir a trilha, o professor recebe uma certificação de validade nacional. O gestor acessa relatórios em tempo real com evidências para prestação de contas.",
+                "Materiais práticos que o professor leva para a sala no dia seguinte.",
+            },
+            {
+              number: "04",
+              title: "Painel + Certificação",
+              description:
+                "A prefeitura documenta o cumprimento da PNED. O professor recebe certificado nacional.",
             },
           ].map((step, idx) => (
             <motion.div
