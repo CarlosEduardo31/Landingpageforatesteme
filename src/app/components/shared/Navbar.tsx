@@ -1,7 +1,7 @@
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import Button from '../ui/Button';
+import { Button } from '../ui/Button';
 
 interface NavbarProps {
   variant?: 'default' | 'gestores' | 'professores';
@@ -32,16 +32,11 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <a href="#/" className="flex items-center gap-2">
-            <div
-              className="text-2xl font-bold transition-colors"
-              style={{
-                color: isScrolled
-                  ? 'var(--color-atesteme)'
-                  : 'white'
-              }}
-            >
-              Ateste.me
-            </div>
+            <img
+              src={isScrolled ? "/logo/LogoColorida.png" : "/logo/LogoBranca.png"}
+              alt="Ateste.me"
+              className="h-8 md:h-10 object-contain transition-all duration-300"
+            />
           </a>
 
           {/* Desktop Menu */}
@@ -77,7 +72,7 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
           </div>
 
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant="primary" size="md">
+            <Button variant="default">
               Solicitar demonstração
             </Button>
           </div>
@@ -138,7 +133,7 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
                 >
                   Guia PNED
                 </a>
-                <Button variant="primary" size="md" className="w-full">
+                <Button variant="default" className="w-full">
                   Solicitar demonstração
                 </Button>
               </div>

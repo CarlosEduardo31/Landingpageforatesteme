@@ -9,16 +9,17 @@ import {
   Shield,
   FileText,
   Sparkles,
+  Check,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Navbar from "../components/shared/Navbar";
 import Footer from "../components/shared/Footer";
-import Button from "../components/ui/Button";
-import Card from "../components/ui/Card";
+import { Button } from "../components/ui/Button";
+// import Card from "../components/ui/Card";
 import Section, {
   SectionHeader,
 } from "../components/ui/Section";
-import Badge from "../components/ui/Badge";
+// import Badge from "../components/ui/Badge";
 
 // Scroll reveal hook
 function useScrollReveal() {
@@ -147,20 +148,19 @@ export default function HomePage() {
                 className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
               >
                 <Button
-                  variant="primary"
+                  variant="default"
                   size="lg"
-                  showArrow
-                  href="#contato"
+                  asChild
                 >
-                  Sou Gestor - Solicitar Apresentação
+                  <a href="#contato">Sou Gestor - Solicitar Apresentação</a>
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
                   className="border-white text-white hover:bg-white hover:text-[var(--color-atesteme)]"
-                  href="https://autoavaliacao.atesteme.com.br"
+                  asChild
                 >
-                  Sou Professor - Diagnóstico Privado
+                  <a href="https://autoavaliacao.atesteme.com.br">Sou Professor - Diagnóstico Privado</a>
                 </Button>
               </motion.div>
             </div>
@@ -195,21 +195,11 @@ export default function HomePage() {
               Parceiros Institucionais
             </p>
             <div className="flex flex-wrap items-center justify-center gap-8 mb-8">
-              <span className="text-white/70 text-sm font-semibold">
-                Instituto Verbus
-              </span>
-              <span className="text-white/70 text-sm font-semibold">
-                Prefeitura A
-              </span>
-              <span className="text-white/70 text-sm font-semibold">
-                Prefeitura B
-              </span>
-              <span className="text-white/70 text-sm font-semibold">
-                FNDE
-              </span>
-              <span className="text-white/70 text-sm font-semibold">
-                MEC
-              </span>
+              <img src="/parceiros/IPESPE.png" alt="IPESPE EDUC" className="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+              <img src="https://atesteme.com/wp-content/uploads/2026/03/images-e1773852672899.webp" alt="Prefeitura A" className="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+              <img src="https://atesteme.com/wp-content/uploads/2023/03/sebrae.png" alt="Sebrae" className="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+              <img src="https://atesteme.com/wp-content/uploads/2023/03/Catalisa-1.png" alt="Catalisa" className="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+              {/* <img src="https://placehold.co/140x50/transparent/white?text=MEC" alt="MEC" className="h-8 md:h-10 object-contain opacity-70 hover:opacity-100 transition-opacity" /> */}
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2">
@@ -304,7 +294,7 @@ export default function HomePage() {
       <Section background="white" className="py-16">
         <div className="flex flex-wrap justify-center gap-16 max-w-4xl mx-auto">
           <StatItem
-            value="32.000+"
+            value="8.000+"
             label="Usuários Licenciados"
             delay={0}
           />
@@ -322,7 +312,7 @@ export default function HomePage() {
       </Section>
 
       {/* Problem Section - Infrastructure Barrier */}
-      <Section background="gray" className="py-24">
+      {/* <Section background="gray" className="py-24">
         <div className="max-w-3xl mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -361,7 +351,7 @@ export default function HomePage() {
             nada, respeitando o ritmo e a conexão da sua rede.
           </motion.p>
         </div>
-      </Section>
+      </Section> */}
 
       {/* Steps Section - Rota PNED com Numbered Cards */}
       <Section
@@ -441,9 +431,9 @@ export default function HomePage() {
               }}
             >
               <div
-                className="text-6xl font-extrabold mb-6 opacity-60 leading-none"
+                className="text-6xl font-extrabold mb-6 leading-none"
                 style={{
-                  color: "var(--color-purple-blue-gray)",
+                  color: "var(--primary)",
                 }}
               >
                 {step.number}
@@ -462,6 +452,148 @@ export default function HomePage() {
               </p>
             </motion.div>
           ))}
+        </div>
+      </Section>
+
+      {/* Pricing Section */}
+      <Section background="gray" className="py-24" id="planos">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: "var(--color-purple-bluest)" }}>Pacotes</p>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-5xl font-extrabold mb-6 text-[#111827] leading-tight"
+            >
+              A proposta certa para o<br/>porte da sua rede.
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-lg md:text-xl text-gray-600"
+            >
+              Investimento sob consulta — proposta personalizada em até 24h.
+            </motion.p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 items-center">
+            {/* Essencial */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-lg transition-shadow"
+            >
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Essencial</h3>
+                <p className="text-sm text-gray-500 min-h-[40px]">Para redes pequenas que querem começar com o essencial da PNED.</p>
+              </div>
+              <div className="mb-8">
+                <p className="text-3xl font-extrabold text-gray-900">Sob consulta</p>
+                <p className="text-xs text-gray-500 mt-1">Proposta personalizada por rede</p>
+              </div>
+              <ul className="space-y-4 mb-8 flex-1">
+                {[
+                  "Diagnóstico individual",
+                  "Trilhas adaptativas básicas",
+                  "Painel da Secretaria",
+                  "Certificação nacional",
+                  "Suporte por e-mail",
+                ].map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 shrink-0" style={{ color: "var(--color-purple-bluest)" }} />
+                    <span className="text-sm text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button variant="outline" className="w-full border-2 hover:bg-purple-50" style={{ borderColor: "var(--color-purple-bluest)", color: "var(--color-purple-bluest)" }}>
+                Falar com vendas
+              </Button>
+            </motion.div>
+
+            {/* Completa (Featured) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="rounded-3xl p-8 shadow-xl relative flex flex-col h-full md:scale-105 z-10"
+              style={{ backgroundColor: "var(--color-obsidian)" }}
+            >
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                <span className="bg-[var(--color-purple-bluest)] text-white text-xs font-bold uppercase tracking-wider py-1.5 px-4 rounded-full shadow-lg whitespace-nowrap">
+                  Mais indicado
+                </span>
+              </div>
+              <div className="mb-8 mt-4">
+                <h3 className="text-2xl font-bold text-white mb-2">Completa</h3>
+                <p className="text-sm text-gray-300 min-h-[40px]">A escolha da maioria das prefeituras: tudo para cumprir e documentar a PNED.</p>
+              </div>
+              <div className="mb-8">
+                <p className="text-3xl font-extrabold text-white">Sob consulta</p>
+                <p className="text-xs text-gray-400 mt-1">Proposta personalizada por rede</p>
+              </div>
+              <ul className="space-y-4 mb-8 flex-1">
+                {[
+                  "Tudo do Essencial",
+                  "Tutoria humana por escola",
+                  "Planos de aula práticos",
+                  "Relatórios PNED para TCM/MEC",
+                  "Onboarding presencial da equipe",
+                  "Suporte WhatsApp + e-mail",
+                ].map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 shrink-0" style={{ color: "var(--color-purple-bluest)" }} />
+                    <span className="text-sm text-gray-200">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button variant="default" className="w-full text-white hover:opacity-90 border-0" style={{ backgroundColor: "var(--color-purple-bluest)" }}>
+                Quero a Completa
+              </Button>
+            </motion.div>
+
+            {/* Institucional */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-lg transition-shadow"
+            >
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Institucional</h3>
+                <p className="text-sm text-gray-500 min-h-[40px]">Para redes acima de 5.000 professores ou consórcios intermunicipais.</p>
+              </div>
+              <div className="mb-8">
+                <p className="text-3xl font-extrabold text-gray-900">Sob consulta</p>
+                <p className="text-xs text-gray-500 mt-1">Proposta personalizada por rede</p>
+              </div>
+              <ul className="space-y-4 mb-8 flex-1">
+                {[
+                  "Tudo da Completa",
+                  "Customização da trilha por rede",
+                  "Integração com sistemas da SEDUC",
+                  "Gestor de conta dedicado",
+                  "Relatórios sob demanda",
+                  "SLA garantido",
+                ].map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 shrink-0" style={{ color: "var(--color-purple-bluest)" }} />
+                    <span className="text-sm text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button variant="outline" className="w-full border-2 hover:bg-purple-50" style={{ borderColor: "var(--color-purple-bluest)", color: "var(--color-purple-bluest)" }}>
+                Apresentação para o consórcio
+              </Button>
+            </motion.div>
+          </div>
         </div>
       </Section>
 
@@ -561,7 +693,7 @@ export default function HomePage() {
               </div>
 
               <Button
-                variant="primary"
+                variant="default"
                 size="lg"
                 className="w-full text-lg"
                 type="submit"
