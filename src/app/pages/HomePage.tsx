@@ -16,12 +16,12 @@ import {
 import { useEffect, useRef, useState } from "react";
 import Navbar from "../components/shared/Navbar";
 import Footer from "../components/shared/Footer";
-import { Button } from "../components/ui/Button";
-// import Card from "../components/ui/Card";
+import { Button } from "../components/ui/button";
+// import Card from "../components/ui/card";
 import Section, {
   SectionHeader,
 } from "../components/ui/Section";
-// import Badge from "../components/ui/Badge";
+// import Badge from "../components/ui/badge";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../components/ui/accordion";
 
 // Scroll reveal hook
