@@ -122,7 +122,7 @@ export default function HomePage() {
                 transition={{ duration: 0.7, delay: 0.1 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white max-w-4xl mx-auto"
               >
-                Sua rede municipal certificada digitalmente —{" "}
+                Sua rede municipal certificada digitalmente {" "}
                 <span
                   style={{
                     color: "var(--color-purple-blue-gray)",
@@ -367,7 +367,7 @@ export default function HomePage() {
       >
         <SectionHeader
           badge="ROTA PNED"
-          title="Como funciona — em 4 passos."
+          title="Como funciona em 4 passos."
           description="Do diagnóstico à certificação nacional. Tudo documentado para a prefeitura, tudo simples para a professora."
         />
 
@@ -488,7 +488,7 @@ export default function HomePage() {
               className="rounded-[2rem] p-8 shadow-xl relative flex flex-col h-full md:scale-105 z-10 shadow-[0_0_40px_rgba(139,92,246,0.3)]"
               style={{ backgroundColor: "var(--color-obsidian)" }}
             >
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+              <div className="absolute -top-4 inset-x-0 flex justify-center">
                 <span className="bg-gradient-to-r from-[var(--color-purple-bluest)] to-[#8B5CF6] text-white text-xs font-bold uppercase tracking-wider py-2 px-6 rounded-full shadow-lg whitespace-nowrap">
                   Mais indicado
                 </span>
