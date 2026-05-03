@@ -474,7 +474,7 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Button variant="outline" className="w-full border-2 rounded-full h-12 text-base font-semibold bg-white text-[var(--color-purple-bluest)] hover:bg-[var(--color-purple-bluest)] hover:text-white transition-colors" style={{ borderColor: "var(--color-purple-bluest)" }}>
+              <Button variant="outline" className="w-full border-2 rounded-full min-h-[3rem] h-auto py-2 whitespace-normal text-base font-semibold bg-white text-[var(--color-purple-bluest)] hover:bg-[var(--color-purple-bluest)] hover:text-white transition-colors" style={{ borderColor: "var(--color-purple-bluest)" }}>
                 Falar com vendas
               </Button>
             </motion.div>
@@ -516,7 +516,7 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Button variant="default" className="w-full text-white hover:opacity-90 border-0 rounded-full h-12 text-base font-semibold bg-gradient-to-r from-[var(--color-purple-bluest)] to-[#8B5CF6]">
+              <Button variant="default" className="w-full text-white hover:opacity-90 border-0 rounded-full min-h-[3rem] h-auto py-2 whitespace-normal text-base font-semibold bg-gradient-to-r from-[var(--color-purple-bluest)] to-[#8B5CF6]">
                 Quero a Completa
               </Button>
             </motion.div>
@@ -552,7 +552,7 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Button variant="outline" className="w-full border-2 rounded-full h-12 text-base font-semibold bg-white text-[var(--color-purple-bluest)] hover:bg-[var(--color-purple-bluest)] hover:text-white transition-colors" style={{ borderColor: "var(--color-purple-bluest)" }}>
+              <Button variant="outline" className="w-full border-2 rounded-full min-h-[3rem] h-auto py-2 whitespace-normal text-base font-semibold bg-white text-[var(--color-purple-bluest)] hover:bg-[var(--color-purple-bluest)] hover:text-white transition-colors" style={{ borderColor: "var(--color-purple-bluest)" }}>
                 Apresentação para o consórcio
               </Button>
             </motion.div>
