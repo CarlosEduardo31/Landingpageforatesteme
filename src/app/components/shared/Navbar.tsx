@@ -1,7 +1,7 @@
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/button';
 
 interface NavbarProps {
   variant?: 'default' | 'gestores' | 'professores';
