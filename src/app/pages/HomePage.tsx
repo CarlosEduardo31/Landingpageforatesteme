@@ -10,6 +10,8 @@ import {
   FileText,
   Sparkles,
   Check,
+  MessageCircle,
+  Smartphone,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Navbar from "../components/shared/Navbar";
@@ -20,6 +22,7 @@ import Section, {
   SectionHeader,
 } from "../components/ui/Section";
 // import Badge from "../components/ui/Badge";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../components/ui/accordion";
 
 // Scroll reveal hook
 function useScrollReveal() {
@@ -95,6 +98,7 @@ export default function HomePage() {
       <Section
         background="hero"
         className="pt-32 pb-20 relative overflow-hidden min-h-[85vh] flex items-center"
+        id="inicio"
       >
         <div className="relative z-10 w-full text-center">
           <div className="max-w-4xl mx-auto">
@@ -228,18 +232,10 @@ export default function HomePage() {
       {/* Story Section */}
       <Section background="white" className="py-20">
         <div className="max-w-4xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center leading-tight"
-            style={{ color: "var(--color-obsidian)" }}
-          >
-            Há uma professora na sua rede que ficou para trás. E
-            uma prefeitura que vai precisar provar que não
-            deixou.
-          </motion.h2>
+          <SectionHeader
+            badge="O problema silencioso"
+            title="Há uma professora na sua rede que ficou para trás. E uma prefeitura que vai precisar provar que não deixou."
+          />
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -291,7 +287,7 @@ export default function HomePage() {
       </Section>
 
       {/* Social Proof - Stats */}
-      <Section background="white" className="py-16">
+      {/* <Section background="white" className="py-16">
         <div className="flex flex-wrap justify-center gap-16 max-w-4xl mx-auto">
           <StatItem
             value="8.000+"
@@ -309,49 +305,59 @@ export default function HomePage() {
             delay={0.2}
           />
         </div>
-      </Section>
-
-      {/* Problem Section - Infrastructure Barrier */}
-      {/* <Section background="gray" className="py-24">
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold mb-6"
-            style={{ color: "var(--color-obsidian)" }}
-          >
-            A infraestrutura não pode ser a desculpa.
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg md:text-xl mb-6 leading-relaxed"
-            style={{ color: "rgba(11, 8, 21, 0.7)" }}
-          >
-            A principal objeção para não implementar tecnologia
-            nas escolas é a falta de computadores modernos e
-            internet rápida. O Ateste.me foi construído para a
-            realidade brasileira.
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl leading-relaxed"
-            style={{ color: "rgba(11, 8, 21, 0.7)" }}
-          >
-            Não espere o ambiente ideal para cumprir a
-            legislação. A nossa plataforma roda direto no
-            navegador do smartphone do professor, sem instalar
-            nada, respeitando o ritmo e a conexão da sua rede.
-          </motion.p>
-        </div>
       </Section> */}
+
+      {/* Por que Ateste.me Section */}
+      <Section background="gray" className="py-24" id="diferenciais">
+        <SectionHeader
+          badge="POR QUE ATESTE.ME"
+          title="Quatro pilares que fazem toda a diferença."
+        />
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-4 mt-12">
+          {[
+            {
+              icon: <Target className="w-8 h-8 text-[var(--color-purple-bluest)]" />,
+              title: "Começa de onde você está",
+              description: "Diagnóstico individual mapeia o ponto de partida. Cada um caminha do seu nível, no seu ritmo."
+            },
+            {
+              icon: <Smartphone className="w-8 h-8 text-[var(--color-purple-bluest)]" />,
+              title: "Funciona no celular",
+              description: "Mobile-first, internet fraca, sem instalação. Funciona com a infraestrutura que a sua rede tem hoje."
+            },
+            {
+              icon: <Award className="w-8 h-8 text-[var(--color-purple-bluest)]" />,
+              title: "Certificação que vale",
+              description: "Reconhecida na Lei 14.533/2023, alinhada à BNCC. Vale para progressão funcional do professor."
+            },
+            {
+              icon: <FileText className="w-8 h-8 text-[var(--color-purple-bluest)]" />,
+              title: "Prefeitura documentada",
+              description: "Painel com relatórios prontos para TCM, MEC, FNDE e o conselho municipal. Auditoria sem sobressaltos."
+            }
+          ].map((pillar, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              className="bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col"
+            >
+              <div className="bg-purple-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                {pillar.icon}
+              </div>
+              <h3 className="text-xl font-bold mb-4" style={{ color: "var(--color-obsidian)" }}>
+                {pillar.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed text-base flex-1">
+                {pillar.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </Section>
 
       {/* Steps Section - Rota PNED com Numbered Cards */}
       <Section
@@ -359,38 +365,11 @@ export default function HomePage() {
         className="py-24"
         id="como-funciona"
       >
-        <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-5xl font-bold mb-2"
-            style={{ color: "var(--color-obsidian)" }}
-          >
-            Rota PNED
-          </motion.h2>
-          <motion.h3
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl md:text-2xl font-semibold mb-4"
-            style={{ color: "var(--color-obsidian)" }}
-          >
-            Como funciona — em 4 passos.
-          </motion.h3>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base md:text-lg max-w-3xl mx-auto"
-            style={{ color: "rgba(11, 8, 21, 0.7)" }}
-          >
-            Do diagnóstico à certificação nacional. Tudo documentado para a prefeitura, tudo simples para a professora.
-          </motion.p>
-        </div>
+        <SectionHeader
+          badge="ROTA PNED"
+          title="Como funciona — em 4 passos."
+          description="Do diagnóstico à certificação nacional. Tudo documentado para a prefeitura, tudo simples para a professora."
+        />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {[
@@ -458,27 +437,11 @@ export default function HomePage() {
       {/* Pricing Section */}
       <Section background="gray" className="py-24" id="planos">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: "var(--color-purple-bluest)" }}>Pacotes</p>
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl md:text-5xl font-extrabold mb-6 text-[#111827] leading-tight"
-            >
-              A proposta certa para o<br/>porte da sua rede.
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg md:text-xl text-gray-600"
-            >
-              Investimento sob consulta — proposta personalizada em até 24h.
-            </motion.p>
-          </div>
+          <SectionHeader
+            badge="PACOTES"
+            title={<>A proposta certa para o<br/>porte da sua rede.</>}
+            description="Investimento sob consulta — proposta personalizada em até 24h."
+          />
 
           <div className="grid md:grid-cols-3 gap-8 items-center">
             {/* Essencial */}
@@ -511,7 +474,7 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Button variant="outline" className="w-full border-2 hover:bg-purple-50" style={{ borderColor: "var(--color-purple-bluest)", color: "var(--color-purple-bluest)" }}>
+              <Button variant="outline" className="w-full border-2 rounded-full h-12 text-base font-semibold bg-white text-[var(--color-purple-bluest)] hover:bg-[var(--color-purple-bluest)] hover:text-white transition-colors" style={{ borderColor: "var(--color-purple-bluest)" }}>
                 Falar com vendas
               </Button>
             </motion.div>
@@ -522,11 +485,11 @@ export default function HomePage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="rounded-3xl p-8 shadow-xl relative flex flex-col h-full md:scale-105 z-10"
+              className="rounded-[2rem] p-8 shadow-xl relative flex flex-col h-full md:scale-105 z-10 shadow-[0_0_40px_rgba(139,92,246,0.3)]"
               style={{ backgroundColor: "var(--color-obsidian)" }}
             >
               <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <span className="bg-[var(--color-purple-bluest)] text-white text-xs font-bold uppercase tracking-wider py-1.5 px-4 rounded-full shadow-lg whitespace-nowrap">
+                <span className="bg-gradient-to-r from-[var(--color-purple-bluest)] to-[#8B5CF6] text-white text-xs font-bold uppercase tracking-wider py-2 px-6 rounded-full shadow-lg whitespace-nowrap">
                   Mais indicado
                 </span>
               </div>
@@ -553,7 +516,7 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Button variant="default" className="w-full text-white hover:opacity-90 border-0" style={{ backgroundColor: "var(--color-purple-bluest)" }}>
+              <Button variant="default" className="w-full text-white hover:opacity-90 border-0 rounded-full h-12 text-base font-semibold bg-gradient-to-r from-[var(--color-purple-bluest)] to-[#8B5CF6]">
                 Quero a Completa
               </Button>
             </motion.div>
@@ -589,11 +552,52 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Button variant="outline" className="w-full border-2 hover:bg-purple-50" style={{ borderColor: "var(--color-purple-bluest)", color: "var(--color-purple-bluest)" }}>
+              <Button variant="outline" className="w-full border-2 rounded-full h-12 text-base font-semibold bg-white text-[var(--color-purple-bluest)] hover:bg-[var(--color-purple-bluest)] hover:text-white transition-colors" style={{ borderColor: "var(--color-purple-bluest)" }}>
                 Apresentação para o consórcio
               </Button>
             </motion.div>
           </div>
+        </div>
+      </Section>
+
+      {/* FAQ Section */}
+      <Section background="white" className="py-24" id="faq">
+        <div className="max-w-3xl mx-auto">
+          <SectionHeader
+            badge="DÚVIDAS"
+            title="Perguntas Frequentes"
+            description="Tire suas dúvidas sobre o Ateste.me e como podemos ajudar."
+          />
+          
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            {[
+              {
+                question: "O que é a Atesteme?",
+                answer: "Uma plataforma gamificada para você avaliar e desenvolver suas competências digitais."
+              },
+              {
+                question: "Como a Atesteme funciona?",
+                answer: "Quando você realiza o cadastro, recebe um teste inicial com algumas questões para que entenda como funciona o nosso sistema. Com a contratação de algum dos nossos planos, você poderá escolher seu percurso de aprendizagem por meio das 16 (dezesseis) competências disponíveis. Ao alcançar o nível desejado, você poderá realizar um Teste de Certificação, com 48 questões."
+              },
+              {
+                question: "Qualquer pessoa pode utilizá-lo?",
+                answer: "Sim. Você precisa realizar um cadastro simples para ter acesso aos conteúdos e, ao fim da sua jornada, receber um certificado."
+              },
+              {
+                question: "Como recebo um certificado?",
+                answer: "Quando alcançar o nível desejado em nosso ambiente de aprendizagem, você poderá se submeter a um Teste de Certificação, com 48 questões. Caso consiga 70% das respostas certas, você conquistará um certificado no mesmo nível que o adquirido no ambiente de aprendizagem."
+              }
+            ].map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="bg-white border rounded-xl px-6 data-[state=open]:border-[var(--color-purple-bluest)] data-[state=open]:shadow-md transition-all">
+                <AccordionTrigger className="text-left text-lg font-semibold text-gray-900 py-6 hover:no-underline hover:text-[var(--color-purple-bluest)] transition-colors">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-600 text-base leading-relaxed pb-6">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </Section>
 
@@ -616,6 +620,7 @@ export default function HomePage() {
               prefeitura.
             </p>
 
+            {/* Form comentado temporariamente
             <form className="space-y-6">
               <div>
                 <label
@@ -701,6 +706,24 @@ export default function HomePage() {
                 Solicitar Apresentação
               </Button>
             </form>
+            */}
+
+            <div className="flex flex-col items-center justify-center space-y-6 mt-8">
+              <Button
+                variant="default"
+                size="lg"
+                className="w-full md:w-auto px-8 py-8 text-xl rounded-full bg-[#25D366] hover:bg-[#1ebd5a] text-white shadow-lg shadow-[#25D366]/30 border-0 flex items-center gap-3 transition-transform hover:scale-105"
+                asChild
+              >
+                <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20planos%20do%20Ateste.me!" target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="w-6 h-6" />
+                  Falar no WhatsApp
+                </a>
+              </Button>
+              {/* <p className="text-white/50 text-sm text-center">
+                *Substitua o número no link do código (href) pelo número oficial da Ateste.me.
+              </p> */}
+            </div>
           </div>
         </motion.div>
       </Section>

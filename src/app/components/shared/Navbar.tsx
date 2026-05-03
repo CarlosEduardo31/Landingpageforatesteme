@@ -31,7 +31,7 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#/" className="flex items-center gap-2">
+          <a href="#inicio" className="flex items-center gap-2">
             <img
               src={isScrolled ? "/logo/LogoColorida.png" : "/logo/LogoBranca.png"}
               alt="Ateste.me"
@@ -42,38 +42,42 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-8">
             <a
-              href="#/"
+              href="#inicio"
               className="font-medium transition hover:opacity-70"
               style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
             >
               Início
             </a>
             <a
-              href="#/gestores"
+              href="#como-funciona"
               className="font-medium transition hover:opacity-70"
               style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
             >
+              Como Funciona
+            </a>
+            <a
+              href="#planos"
+              className="font-medium transition hover:opacity-70"
+              style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
+            >
+              Planos
+            </a>
+            {/* Páginas futuras
+            <a href="#/gestores" className="font-medium transition hover:opacity-70" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}>
               Para Gestores
             </a>
-            <a
-              href="#/professores"
-              className="font-medium transition hover:opacity-70"
-              style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
-            >
+            <a href="#/professores" className="font-medium transition hover:opacity-70" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}>
               Para Professores
             </a>
-            <a
-              href="#/guia-pned"
-              className="font-medium transition hover:opacity-70"
-              style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
-            >
+            <a href="#/guia-pned" className="font-medium transition hover:opacity-70" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}>
               Guia PNED
             </a>
+            */}
           </div>
 
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant="default">
-              Solicitar demonstração
+            <Button variant="default" asChild>
+              <a href="#contato">Solicitar demonstração</a>
             </Button>
           </div>
 
@@ -102,7 +106,7 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
             >
               <div className="py-4 space-y-4">
                 <a
-                  href="#/"
+                  href="#inicio"
                   className="block font-medium transition hover:opacity-70"
                   style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
                   onClick={() => setIsOpen(false)}
@@ -110,31 +114,34 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
                   Início
                 </a>
                 <a
-                  href="#/gestores"
+                  href="#como-funciona"
                   className="block font-medium transition hover:opacity-70"
                   style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
                   onClick={() => setIsOpen(false)}
                 >
+                  Como Funciona
+                </a>
+                <a
+                  href="#planos"
+                  className="block font-medium transition hover:opacity-70"
+                  style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
+                  onClick={() => setIsOpen(false)}
+                >
+                  Planos
+                </a>
+                {/* Páginas futuras
+                <a href="#/gestores" className="block font-medium transition hover:opacity-70" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }} onClick={() => setIsOpen(false)}>
                   Para Gestores
                 </a>
-                <a
-                  href="#/professores"
-                  className="block font-medium transition hover:opacity-70"
-                  style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
-                  onClick={() => setIsOpen(false)}
-                >
+                <a href="#/professores" className="block font-medium transition hover:opacity-70" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }} onClick={() => setIsOpen(false)}>
                   Para Professores
                 </a>
-                <a
-                  href="#/guia-pned"
-                  className="block font-medium transition hover:opacity-70"
-                  style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
-                  onClick={() => setIsOpen(false)}
-                >
+                <a href="#/guia-pned" className="block font-medium transition hover:opacity-70" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }} onClick={() => setIsOpen(false)}>
                   Guia PNED
                 </a>
-                <Button variant="default" className="w-full">
-                  Solicitar demonstração
+                */}
+                <Button variant="default" className="w-full" asChild>
+                  <a href="#contato" onClick={() => setIsOpen(false)}>Solicitar demonstração</a>
                 </Button>
               </div>
             </motion.div>
