@@ -22,22 +22,24 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 border-b shadow-sm'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300 ${isScrolled
+        ? 'bg-white/95 border-b shadow-sm'
+        : 'bg-transparent'
+        }`}
       style={isScrolled ? { borderColor: 'var(--color-neutral-200)' } : {}}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#inicio" className="flex items-center gap-2">
-            <img
-              src={isScrolled ? "/logo/LogoColorida.png" : "/logo/LogoBranca.png"}
-              alt="Ateste.me"
-              className="h-8 md:h-10 object-contain transition-all duration-300"
-            />
-          </a>
+          {/* Logo (Left Side) */}
+          <div className="flex-1">
+            <a href="#inicio" className="inline-flex items-center gap-2">
+              <img
+                src={isScrolled ? "/logo/LogoColorida.png" : "/logo/LogoBranca.png"}
+                alt="Ateste.me"
+                className="h-8 md:h-10 object-contain transition-all duration-300"
+              />
+            </a>
+          </div>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-8">
@@ -60,7 +62,7 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
               className="font-medium transition hover:opacity-70"
               style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
             >
-              Planos
+              Parceiros
             </a>
             {/* Páginas futuras
             <a href="#/gestores" className="font-medium transition hover:opacity-70" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}>
@@ -75,23 +77,19 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
             */}
           </div>
 
-          <div className="hidden lg:flex items-center gap-4">
-            <Button variant="default" asChild>
-              <a href="#contato">Solicitar demonstração</a>
-            </Button>
+          {/* Mobile Button & Right Spacer */}
+          <div className="flex-1 flex justify-end">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="lg:hidden"
+            >
+              {isOpen ? (
+                <X className="w-6 h-6" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }} />
+              ) : (
+                <Menu className="w-6 h-6" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }} />
+              )}
+            </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden"
-          >
-            {isOpen ? (
-              <X className="w-6 h-6" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }} />
-            ) : (
-              <Menu className="w-6 h-6" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }} />
-            )}
-          </button>
         </div>
 
         {/* Mobile Menu */}
@@ -140,9 +138,6 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
                   Guia PNED
                 </a>
                 */}
-                <Button variant="default" className="w-full" asChild>
-                  <a href="#contato" onClick={() => setIsOpen(false)}>Solicitar demonstração</a>
-                </Button>
               </div>
             </motion.div>
           )}

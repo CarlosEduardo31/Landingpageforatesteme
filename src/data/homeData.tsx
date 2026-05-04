@@ -1,44 +1,58 @@
-import { Target, Smartphone, Award, FileText } from "lucide-react";
+import { Search, BookOpen, GraduationCap, Gamepad2, FileText } from "lucide-react";
 
 export const partnersData = [
+  {
+    name: "Garanhuns",
+    src: "/parceiros/logo_garanhuns.png",
+  },
+  {
+    name: "Cabo de Santo Agostinho",
+    src: "/parceiros/logo_cabo.svg",
+  },
+  {
+    name: "São Bento do Una",
+    src: "/parceiros/logo_saobentodouna.png",
+  },
+  {
+    name: "Toritama",
+    src: "/parceiros/logo_toritama.png",
+  },
   {
     name: "IPESPE EDUC",
     src: "/parceiros/IPESPE.png",
   },
   {
-    name: "Prefeitura A",
+    name: "IBDG",
     src: "https://atesteme.com/wp-content/uploads/2026/03/images-e1773852672899.webp",
   },
-  {
-    name: "Sebrae",
-    src: "https://atesteme.com/wp-content/uploads/2023/03/sebrae.png",
-  },
-  {
-    name: "Catalisa",
-    src: "https://atesteme.com/wp-content/uploads/2023/03/Catalisa-1.png",
-  },
+
 ];
 
 export const differentialsData = [
   {
-    icon: <Target className="w-8 h-8 text-[var(--color-purple-bluest)]" />,
-    title: "Começa de onde você está",
-    description: "Diagnóstico individual mapeia o ponto de partida. Cada um caminha do seu nível, no seu ritmo."
+    icon: <Search className="w-8 h-8 text-[var(--color-purple-bluest)]" />,
+    title: "Diagnóstico Tecnológico",
+    description: "Avaliam-se as condições tecnológicas das escolas da rede para emitir relatório."
   },
   {
-    icon: <Smartphone className="w-8 h-8 text-[var(--color-purple-bluest)]" />,
-    title: "Funciona no celular",
-    description: "Mobile-first, internet fraca, sem instalação. Funciona com a infraestrutura que a sua rede tem hoje."
+    icon: <BookOpen className="w-8 h-8 text-[var(--color-purple-bluest)]" />,
+    title: "Atualização Curricular",
+    description: "Grupo de docentes adaptam o currículo da rede à educação digital e midiática."
   },
   {
-    icon: <Award className="w-8 h-8 text-[var(--color-purple-bluest)]" />,
-    title: "Certificação que vale",
-    description: "Reconhecida na Lei 14.533/2023, alinhada à BNCC. Vale para progressão funcional do professor."
+    icon: <GraduationCap className="w-8 h-8 text-[var(--color-purple-bluest)]" />,
+    title: "Formação de Professores",
+    description: "Pactua-se um cronograma de formação de professores nas modalidades presencial e on-line."
+  },
+  {
+    icon: <Gamepad2 className="w-8 h-8 text-[var(--color-purple-bluest)]" />,
+    title: "Acesso à Plataforma Digital",
+    description: "Professores e alunos recebem acesso à plataforma gamificada para desenvolverem competências digitais."
   },
   {
     icon: <FileText className="w-8 h-8 text-[var(--color-purple-bluest)]" />,
-    title: "Prefeitura documentada",
-    description: "Painel com relatórios prontos para TCM, MEC, FNDE e o conselho municipal. Auditoria sem sobressaltos."
+    title: "Relatórios Personalizados de Progressão",
+    description: "Usuários e gestores de educação acompanham os avanços conquistados em tempo real, para validação pelo MEC."
   }
 ];
 
@@ -93,19 +107,15 @@ export const pricingFeatures = {
 
 export const faqData = [
   {
-    question: "O que é a Atesteme?",
-    answer: "Uma plataforma gamificada para você avaliar e desenvolver suas competências digitais."
+    question: "O que faz o Programa de Educação Digital Atesteme?",
+    answer: "Ajuda redes públicas e particulares de ensino a implementar educação digital e midiática no currículo escolar habilitando-se a receber o Valor Aluno Ano Resultado – VAAR."
   },
   {
     question: "Como a Atesteme funciona?",
-    answer: "Quando você realiza o cadastro, recebe um teste inicial com algumas questões para que entenda como funciona o nosso sistema. Com a contratação de algum dos nossos planos, você poderá escolher seu percurso de aprendizagem por meio das 16 (dezesseis) competências disponíveis. Ao alcançar o nível desejado, você poderá realizar um Teste de Certificação, com 48 questões."
+    answer: "A equipe de tecnólogos realiza um diagnóstico completo de cada unidade escolar, revelando como estão e como devem ficar para receber o Atesteme. Aceita a proposta, a equipe de consultores educacionais se reúne com os gestores para iniciar a atualização do currículo da rede com educação digital com adaptação do Plano Político Pedagógico de cada escola da rede. Organiza-se um cronograma de formação de todos os professores da rede de forma presencial e on-line para aqueles que lecionarão o novo componente curricular. Professores e alunos são embarcados na plataforma de educação digital com exames de certificação como determina a PNED e Resolução do CNE. Os consultores enviam à rede relatórios de desempenho por perfil de usuário, por escola e por regional para monitoramento de uso e de progresso. Gestores da rede escrevem o relatório de implementação da educação digital para envio e validação pelo MEC. "
   },
   {
-    question: "Qualquer pessoa pode utilizá-lo?",
-    answer: "Sim. Você precisa realizar um cadastro simples para ter acesso aos conteúdos e, ao fim da sua jornada, receber um certificado."
-  },
-  {
-    question: "Como recebo um certificado?",
-    answer: "Quando alcançar o nível desejado em nosso ambiente de aprendizagem, você poderá se submeter a um Teste de Certificação, com 48 questões. Caso consiga 70% das respostas certas, você conquistará um certificado no mesmo nível que o adquirido no ambiente de aprendizagem."
+    question: "Quem pode contratar o Programa de Educação Digital Atesteme?",
+    answer: "Todas as redes pública e particular podem solicitar uma apresentação gratuita para conhecer e contratar o programa para desenvolver o Letramento Digital de seus professores e alunos. Dispomos todas as certificações e atestados exigidos para a contratação pelo setor público seja por inexigibilidade, licitação, convênio, termo de cooperação técnica entre outros."
   }
 ];

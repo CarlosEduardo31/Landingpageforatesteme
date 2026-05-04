@@ -4,12 +4,12 @@ import { faqData } from "../../../../data/homeData";
 
 export default function HomeFaqSection() {
   return (
-    <Section background="white" className="py-24" id="faq">
+    <Section background="gray" className="py-24" id="faq">
       <div className="max-w-3xl mx-auto">
         <SectionHeader
           badge="DÚVIDAS"
           title="Perguntas Frequentes"
-          description="Tire suas dúvidas sobre o Ateste.me e como podemos ajudar."
+          description="Tire suas dúvidas sobre o Atesteme e como podemos ajudar."
         />
 
         <Accordion type="single" collapsible className="w-full space-y-4">

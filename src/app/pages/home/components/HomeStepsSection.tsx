@@ -37,7 +37,7 @@ export default function HomeStepsSection() {
               {step.number}
             </div>
             <h3
-              className="text-2xl font-bold mb-4"
+              className="text-2xl font-bold mb-4 min-h-[4rem]"
               style={{ color: "var(--color-obsidian)" }}
             >
               {step.title}

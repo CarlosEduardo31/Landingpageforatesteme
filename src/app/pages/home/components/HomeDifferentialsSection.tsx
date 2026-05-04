@@ -4,13 +4,13 @@ import { differentialsData } from "../../../../data/homeData";
 
 export default function HomeDifferentialsSection() {
   return (
-    <Section background="gray" className="py-24" id="diferenciais">
+    <Section background="gray" className="py-20" id="diferenciais">
       <SectionHeader
-        badge="POR QUE ATESTE.ME"
-        title="Quatro pilares que fazem toda a diferença."
+        badge="POR QUE ATESTEME"
+        title="5 Pilares para implementação do Programa de Educação Digital"
       />
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-4 mt-12">
+      <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 xl:gap-8 max-w-[1400px] mx-auto px-4 mt-12">
         {differentialsData.map((pillar, idx) => (
           <motion.div
             key={idx}

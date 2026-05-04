@@ -8,6 +8,7 @@ import HomePricingSection from "./home/components/HomePricingSection";
 import HomeGuaranteeSection from "./home/components/HomeGuaranteeSection";
 import HomeFaqSection from "./home/components/HomeFaqSection";
 import HomeContactSection from "./home/components/HomeContactSection";
+import { SolutionsCarousel } from "../components/ui/SolutionsCarousel";
 
 export default function HomePage() {
   return (
@@ -17,9 +18,8 @@ export default function HomePage() {
       <HomeStorySection />
       <HomeDifferentialsSection />
       <HomeStepsSection />
-      <HomePricingSection />
-      <HomeGuaranteeSection />
       <HomeFaqSection />
+      <SolutionsCarousel />
       <HomeContactSection />
       <Footer />
     </div>

@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Mail } from "lucide-react";
 import Section from "../../../components/ui/Section";
 import { Button } from "../../../components/ui/button";
 
@@ -18,9 +18,8 @@ export default function HomeContactSection() {
             Pronto para iniciar?
           </h2>
           <p className="text-white/70 mb-10 text-center text-lg">
-            Fale com a nossa equipe de especialistas e garanta
-            o cumprimento documentado da PNED na sua
-            prefeitura.
+            Fale com nossos especialistas e
+            garanta mais recursos do Fundeb/VAAR para sua rede de ensino
           </p>
 
           <div className="flex flex-col items-center justify-center space-y-6 mt-8">
@@ -30,11 +29,19 @@ export default function HomeContactSection() {
               className="w-full md:w-auto px-8 py-8 text-xl rounded-full bg-[#25D366] hover:bg-[#1ebd5a] text-white shadow-lg shadow-[#25D366]/30 border-0 flex items-center gap-3 transition-transform hover:scale-105"
               asChild
             >
-              <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20planos%20do%20Ateste.me!" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5581981313852" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-6 h-6" />
                 Falar no WhatsApp
               </a>
             </Button>
+
+            <a
+              href="mailto:contato@atesteme.com"
+              className="text-white/70 hover:text-white flex items-center gap-2 transition-colors mt-2"
+            >
+              <Mail className="w-5 h-5" />
+              <span>Enviar e-mail para contato@atesteme.com</span>
+            </a>
           </div>
         </div>
       </motion.div>
