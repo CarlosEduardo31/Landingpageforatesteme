@@ -42,8 +42,8 @@ export default function Navbar({
                 src={
                   isSolid ? "/logo/LogoColorida.png" : "/logo/LogoBranca.png"
                 }
-                alt="Ateste.me"
-                className="h-8 md:h-10 object-contain transition-all duration-300"
+                alt="Atesteme"
+                className="h-8 md:h-10 object-contain transition-all duration-300 ml-4 mt-4 md:ml-6"
               />
             </a>
           </div>
