@@ -51,7 +51,8 @@ export default function HomeHeroSection() {
                 className="text-xl md:text-2xl font-medium max-w-3xl mx-auto"
                 style={{ color: "var(--color-purple-blue-gray)" }}
               >
-                Sua rede qualificada para os desafios tecnológicos da BNCC Computação.
+                Sua rede qualificada para os desafios tecnológicos da BNCC
+                Computação.
               </div>
             </motion.div>
 
@@ -61,8 +62,10 @@ export default function HomeHeroSection() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-base md:text-lg mb-12 leading-relaxed text-white/85 font-light max-w-3xl mx-auto"
             >
-              A única plataforma 100% alinhada à PNED, à BNCC Computação e ao ECA Digital.
-              Diagnóstico Tecnológico, Atualização Curricular, Formação de Professores, Plataforma Gamificada, Dashboard de Progresso — Letramento Digital a um clique da comunidade escolar.
+              A única plataforma 100% alinhada à PNED, à BNCC Computação e ao
+              ECA Digital. Diagnóstico Tecnológico, Atualização Curricular,
+              Formação de Professores, Plataforma Gamificada, Dashboard de
+              Progresso — Letramento Digital a um clique da comunidade escolar.
             </motion.p>
 
             <motion.div
@@ -71,11 +74,7 @@ export default function HomeHeroSection() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
             >
-              <Button
-                variant="default"
-                size="lg"
-                asChild
-              >
+              <Button variant="default" size="lg" asChild>
                 <a href="#contato">Sou Gestor - Solicitar Apresentação</a>
               </Button>
               <Button
@@ -84,7 +83,9 @@ export default function HomeHeroSection() {
                 className="border-white text-white hover:bg-white hover:text-[var(--color-atesteme)]"
                 asChild
               >
-                <a href="https://autoavaliacao.atesteme.com.br">Sou Professor - Diagnóstico Privado</a>
+                <a href="https://autoavaliacao.atesteme.com.br" target="_blank">
+                  Sou Professor - Diagnóstico Privado
+                </a>
               </Button>
             </motion.div>
           </div>
@@ -92,18 +93,19 @@ export default function HomeHeroSection() {
 
         {/* Parceiros Institucionais */}
         <motion.div
+          id="parceiros"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4 }}
-          className="max-w-4xl mx-auto mt-16"
+          className="max-w-4xl mx-auto mt-16 scroll-mt-24"
         >
           <p className="text-xs uppercase tracking-widest text-white/50 mb-6 text-center font-semibold">
             Parceiros Institucionais
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mb-8">
             {partnersData.map((partner, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="bg-white rounded-xl px-4 py-3 flex items-center justify-center shadow-lg border border-white/20 transition-transform hover:scale-105"
               >
                 <img

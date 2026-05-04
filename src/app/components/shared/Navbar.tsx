@@ -1,13 +1,17 @@
-import { Menu, X } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Button } from '../ui/button';
+import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Button } from "../ui/button";
 
 interface NavbarProps {
-  variant?: 'default' | 'gestores' | 'professores';
+  variant?: "default" | "gestores" | "professores";
+  alwaysSolid?: boolean;
 }
 
-export default function Navbar({ variant = 'default' }: NavbarProps) {
+export default function Navbar({
+  variant = "default",
+  alwaysSolid = false,
+}: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -16,17 +20,18 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isSolid = isScrolled || alwaysSolid;
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300 ${isScrolled
-        ? 'bg-white/95 border-b shadow-sm'
-        : 'bg-transparent'
-        }`}
-      style={isScrolled ? { borderColor: 'var(--color-neutral-200)' } : {}}
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300 ${
+        isSolid ? "bg-white/95 border-b shadow-sm" : "bg-transparent"
+      }`}
+      style={isSolid ? { borderColor: "var(--color-neutral-200)" } : {}}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -34,7 +39,9 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
           <div className="flex-1">
             <a href="#inicio" className="inline-flex items-center gap-2">
               <img
-                src={isScrolled ? "/logo/LogoColorida.png" : "/logo/LogoBranca.png"}
+                src={
+                  isSolid ? "/logo/LogoColorida.png" : "/logo/LogoBranca.png"
+                }
                 alt="Ateste.me"
                 className="h-8 md:h-10 object-contain transition-all duration-300"
               />
@@ -46,32 +53,38 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
             <a
               href="#inicio"
               className="font-medium transition hover:opacity-70"
-              style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
+              style={{
+                color: isSolid ? "var(--color-text-primary)" : "white",
+              }}
             >
               Início
             </a>
             <a
               href="#como-funciona"
               className="font-medium transition hover:opacity-70"
-              style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
+              style={{
+                color: isSolid ? "var(--color-text-primary)" : "white",
+              }}
             >
               Como Funciona
             </a>
             <a
-              href="#planos"
+              href="#parceiros"
               className="font-medium transition hover:opacity-70"
-              style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
+              style={{
+                color: isSolid ? "var(--color-text-primary)" : "white",
+              }}
             >
               Parceiros
             </a>
             {/* Páginas futuras
-            <a href="#/gestores" className="font-medium transition hover:opacity-70" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}>
+            <a href="#/gestores" className="font-medium transition hover:opacity-70" style={{ color: isSolid ? 'var(--color-text-primary)' : 'white' }}>
               Para Gestores
             </a>
-            <a href="#/professores" className="font-medium transition hover:opacity-70" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}>
+            <a href="#/professores" className="font-medium transition hover:opacity-70" style={{ color: isSolid ? 'var(--color-text-primary)' : 'white' }}>
               Para Professores
             </a>
-            <a href="#/guia-pned" className="font-medium transition hover:opacity-70" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}>
+            <a href="#/guia-pned" className="font-medium transition hover:opacity-70" style={{ color: isSolid ? 'var(--color-text-primary)' : 'white' }}>
               Guia PNED
             </a>
             */}
@@ -79,14 +92,21 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
 
           {/* Mobile Button & Right Spacer */}
           <div className="flex-1 flex justify-end">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden"
-            >
+            <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden">
               {isOpen ? (
-                <X className="w-6 h-6" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }} />
+                <X
+                  className="w-6 h-6"
+                  style={{
+                    color: isSolid ? "var(--color-text-primary)" : "white",
+                  }}
+                />
               ) : (
-                <Menu className="w-6 h-6" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }} />
+                <Menu
+                  className="w-6 h-6"
+                  style={{
+                    color: isSolid ? "var(--color-text-primary)" : "white",
+                  }}
+                />
               )}
             </button>
           </div>
@@ -97,7 +117,7 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
           {isOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
               className="lg:hidden overflow-hidden"
@@ -106,7 +126,9 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
                 <a
                   href="#inicio"
                   className="block font-medium transition hover:opacity-70"
-                  style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
+                  style={{
+                    color: isSolid ? "var(--color-text-primary)" : "white",
+                  }}
                   onClick={() => setIsOpen(false)}
                 >
                   Início
@@ -114,27 +136,31 @@ export default function Navbar({ variant = 'default' }: NavbarProps) {
                 <a
                   href="#como-funciona"
                   className="block font-medium transition hover:opacity-70"
-                  style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
+                  style={{
+                    color: isSolid ? "var(--color-text-primary)" : "white",
+                  }}
                   onClick={() => setIsOpen(false)}
                 >
                   Como Funciona
                 </a>
                 <a
-                  href="#planos"
+                  href="#parceiros"
                   className="block font-medium transition hover:opacity-70"
-                  style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }}
+                  style={{
+                    color: isSolid ? "var(--color-text-primary)" : "white",
+                  }}
                   onClick={() => setIsOpen(false)}
                 >
-                  Planos
+                  Parceiros
                 </a>
                 {/* Páginas futuras
-                <a href="#/gestores" className="block font-medium transition hover:opacity-70" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }} onClick={() => setIsOpen(false)}>
+                <a href="#/gestores" className="block font-medium transition hover:opacity-70" style={{ color: isSolid ? 'var(--color-text-primary)' : 'white' }} onClick={() => setIsOpen(false)}>
                   Para Gestores
                 </a>
-                <a href="#/professores" className="block font-medium transition hover:opacity-70" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }} onClick={() => setIsOpen(false)}>
+                <a href="#/professores" className="block font-medium transition hover:opacity-70" style={{ color: isSolid ? 'var(--color-text-primary)' : 'white' }} onClick={() => setIsOpen(false)}>
                   Para Professores
                 </a>
-                <a href="#/guia-pned" className="block font-medium transition hover:opacity-70" style={{ color: isScrolled ? 'var(--color-text-primary)' : 'white' }} onClick={() => setIsOpen(false)}>
+                <a href="#/guia-pned" className="block font-medium transition hover:opacity-70" style={{ color: isSolid ? 'var(--color-text-primary)' : 'white' }} onClick={() => setIsOpen(false)}>
                   Guia PNED
                 </a>
                 */}
