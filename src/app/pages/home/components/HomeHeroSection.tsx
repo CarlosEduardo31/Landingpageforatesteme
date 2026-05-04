@@ -44,15 +44,16 @@ export default function HomeHeroSection() {
               </div>
 
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white max-w-4xl mx-auto mb-3">
-                Adequação à Lei 14.533/2023 - PNED
+                Adequação à <br />
+                Lei 14.533/2023 - PNED
               </h2>
 
               <div
                 className="text-xl md:text-2xl font-medium max-w-3xl mx-auto"
                 style={{ color: "var(--color-purple-blue-gray)" }}
               >
-                Sua rede qualificada para os desafios tecnológicos da BNCC
-                Computação.
+                Sua rede qualificada para os desafios <br />
+                tecnológicos da BNCC Computação.
               </div>
             </motion.div>
 

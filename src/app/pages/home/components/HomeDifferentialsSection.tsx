@@ -7,7 +7,12 @@ export default function HomeDifferentialsSection() {
     <Section background="gray" className="py-20" id="diferenciais">
       <SectionHeader
         badge="POR QUE ATESTEME"
-        title="5 Pilares para implementação do Programa de Educação Digital"
+        title={
+          <>
+            5 Pilares para implementação do <br />
+            Programa de Educação Digital
+          </>
+        }
       />
 
       <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 xl:gap-8 max-w-[1400px] mx-auto px-4 mt-12">
@@ -23,7 +28,10 @@ export default function HomeDifferentialsSection() {
             <div className="bg-purple-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
               {pillar.icon}
             </div>
-            <h3 className="text-xl font-bold mb-4" style={{ color: "var(--color-obsidian)" }}>
+            <h3
+              className="text-xl font-bold mb-4"
+              style={{ color: "var(--color-obsidian)" }}
+            >
               {pillar.title}
             </h3>
             <p className="text-gray-600 leading-relaxed text-base flex-1">
