@@ -1,4 +1,4 @@
-import { Instagram, Youtube, Facebook } from "lucide-react";
+import { Instagram, Youtube, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -24,39 +24,51 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.instagram.com/atesteme/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.youtube.com/@atesteme"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
                 aria-label="YouTube"
               >
                 <Youtube className="w-5 h-5" />
               </a>
               <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
+                href="https://www.tiktok.com/@atesteme"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
                 aria-label="TikTok"
               >
                 <svg
                   className="w-5 h-5"
-                  fill="currentColor"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
                 >
-                  <path d="M19.589 6.686a4.793 4.793 0 0 1-3.97-1.561 4.795 4.795 0 0 1-1.034-3.16l-.022-.022h-3.69v15.356a3.985 3.985 0 0 1-3.994 3.978 3.96 3.96 0 0 1-3.95-3.987 3.96 3.96 0 0 1 3.95-3.987c.21 0 .416.017.618.05v3.715c-.198-.035-.401-.054-.61-.054a1.272 1.272 0 0 0-1.27 1.27 1.272 1.272 0 0 0 1.27 1.27 1.272 1.272 0 0 0 1.27-1.27V1.954h3.69c.044 1.348.53 2.58 1.34 3.553a6.76 6.76 0 0 0 4.195 2.124v3.696a10.456 10.456 0 0 1-5.789-1.928v6.78a7.653 7.653 0 0 1-7.654 7.632 7.653 7.653 0 0 1-7.653-7.632 7.653 7.653 0 0 1 7.653-7.631c.71 0 1.393.1 2.046.282V14.5a3.982 3.982 0 0 0-2.046-.554 4.025 4.025 0 0 0-4.021 4.015 4.025 4.025 0 0 0 4.021 4.015 4.025 4.025 0 0 0 4.021-4.015v-6.07a10.495 10.495 0 0 0 6.64 2.378v-3.583z" />
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
                 </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/atesteme/about/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
               </a>
             </div>
           </div>
