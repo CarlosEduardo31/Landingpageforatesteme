@@ -34,7 +34,7 @@ export default function Navbar({
       style={isSolid ? { borderColor: "var(--color-neutral-200)" } : {}}
     >
       <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mt-4">
           {/* Logo (Left Side) */}
           <div className="flex-1">
             <a href="#inicio" className="inline-flex items-center gap-2">
